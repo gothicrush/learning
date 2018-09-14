@@ -3,7 +3,7 @@
 * [练习用数据库导入](###练习用数据库导入)
 * [基础查询](###基础查询)
 * [条件查询](###条件查询)
-* [排序查询](###排序查询)
+* [排序查](###排序查询)
 
 ### 练习用数据库导入
 
@@ -89,33 +89,6 @@ MySQL中 + 仅仅只有运算的作用，没有拼接的作用
 | 字符    | 数值    | 尝试将字符转换为数值，失败：字符被当作0 |
 | NULL    | 任意    | 只要有一个为 NULL，结果一定为 NULL      |
 
-#### 拼接函数
-
-```sql
-SELECT CONCAT('a','b','c','d') AS 结果;
-SELECT CONCAT(last_name, first_name) AS name FROM employee;
-```
-
-#### IFNULL函数
-
-```sql
--- IFNULL(exp1, exp2)
--- exp1：将要进行判断的字段
--- exp2：替换的字段
--- 如果 exp1 为 NULL，则返回替换的字段
-
-SELECT IFNULL(commission_pct, 0) AS "奖金率", commission_pct
-FROM employees;
-```
-
-#### LENGTH函数
-
-```sql
--- 求出字段的长度
-SELECT LENGTH(last_name)
-FROM employees;
-```
-
 
 
 ### 条件查询
@@ -185,5 +158,217 @@ ORDER BY salary DESC; -- DESC：降序，ASC:升序，默认为 ASC
 SELECT *
 FROM employees
 ORDER BY salary ASC, employee_id DESC;
+```
+
+
+
+### 常用函数
+
+#### 字符函数
+
+* LENGTH
+
+```sql
+-- 求出字节的个数
+SELECT LENGTH(last_name)
+FROM employees;
+```
+
+* CONCAT
+
+```sql
+SELECT CONCAT('a','b','c','d') AS 结果;
+SELECT CONCAT(last_name, first_name) AS name FROM employee;
+```
+
+* UPPER
+
+```sql
+SELECT UPPER(last_name) FROM employees;
+```
+
+* LOWER
+
+```sql
+SELECT UPPER(last_name) FROM employees;
+```
+
+* SUBSTR
+
+```sql
+SELECT SUBSTR("123456789", 5) // 56789 索引从1开始
+SELECT SUBSTR("123456789", 5, 2) // 567 从索引5开始，长度为2
+```
+
+* INSTR
+
+```sql
+SELECT INSTR("123456789", "567") // 返回第一次出现的索引 5
+SELECT INSTR("123456789", "xxx") // 找不到返回0
+```
+
+* TRIM
+
+```sql
+SELECT TRIM("    xxx    ") // 去除前后空格
+SELECT TRIM("a" FROM "aaaaaaaaaaaaaxxxaaaxxxaaaaaaaaa") // 返回 "xxxaaaxxx"
+```
+
+* LPAD
+
+```sql
+SELECT LPAD("abc", 15, "*") // "***************abc"
+SELECT LPAD("abc", 2, "*") // "ab"
+```
+
+* RPAD
+
+```sql
+SELECT RPAD("abc", 15, "*") // "abc***************"
+SELECT RPAD("abc", 2, "*") // "bc"
+```
+
+#### 数学函数
+
+* ROUND
+
+```sql
+SELECT ROUND(4.56); // 5
+SELECT ROUND(-1.56) // -2
+SELECT ROUND(-1.567, 2) // -1.57 
+```
+
+* CELL
+
+```sql
+SELECT CELL(1.0001) // 2
+SELECT CELL(-1.02)  // -1
+SELECT CELL(1.00)   // 1
+```
+
+* FLOOR
+
+```sql
+SELECT FLOOR(1.0001) // 1
+SELECT FLOOR(-9.8)   //-10
+```
+
+* TRUNCATE
+
+```sql
+SELECT TRUNCATE(1.699999,1);  // 1.6
+```
+
+
+
+#### 日期函数
+
+* NOW
+
+```sql
+SELECT NOW();
+```
+
+* CURDATE
+
+```sql
+SELECT CURDATE();
+```
+
+* CURTIME
+
+```sql
+SELECT CURTIME();
+```
+
+* YEAR
+
+```sql
+SELECT YEAR(NOW());
+SELECT YEAR("2018-9-14 08:23:57");
+```
+
+> MONTH，DAY，HOUR，MINUTE，SECOND 同上
+
+* STR_TO_DATE
+
+```sql
+STR_TO_DATE("9-13-1999", "%m-%-%y")
+
+%y 18 %Y 2018
+%m 08 %c 8
+%d 08
+%H 24小时制
+%h 12小时制
+%i 35
+%s 05
+```
+
+* DATE_FORMAT
+
+```sql
+DATE_FORMAT("2018/6/6","%Y年%m月%d日")
+```
+
+#### 流程控制语句
+
+* IF
+
+```sql
+SELECT IF(10<5,'大','小')
+```
+
+* CASE
+
+```sql
+CASE (要判断的表达式，有就是switch，否则是 if-else)
+WHEN 常量1 THEN 语句1
+WHEN 常量2 THEN 语句2
+...
+ELSE 语句x
+END
+```
+
+#### 其他函数
+
+* IFNULL函数
+
+```sql
+-- IFNULL(exp1, exp2)
+-- exp1：将要进行判断的字段
+-- exp2：替换的字段
+-- 如果 exp1 为 NULL，则返回替换的字段
+
+SELECT IFNULL(commission_pct, 0) AS "奖金率", commission_pct
+FROM employees;
+```
+
+#### 分组函数
+
+* SUM：忽略 NULL
+* AVG：忽略 NULL
+* MAX：忽略 NULL
+* MIN：忽略 NULL
+* COUNT：忽略 NULL
+* 注意事项
+  * sum avg 可以处理数值
+  * max，min，count可以处理任何类型
+  * 分组函数都忽略 NULL
+  * 可以和 distinct 配合实现去重
+  * COUNT(*) ：统计行数，只要有不含 NULL 的，都算一行
+  * COUNT(1)：统计行数，只要有不含 NULL 的，都算一行 
+  * 和分组函数一同查询的字段要求是 group by 后的字段
+
+
+
+### 分组查询
+
+#### GROUP BY子句
+
+```sql
+SELECT
+FROM
+GROUP BY 
+ORDER BY
 ```
 
