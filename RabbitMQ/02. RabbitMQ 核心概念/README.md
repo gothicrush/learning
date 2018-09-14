@@ -1,10 +1,10 @@
 ### 架构图
 
-![](/home/gothicrush/Desktop/learning/RabbitMQ/02. RabbitMQ 核心概念/images/2-2.png)
+![](https://github.com/gothicrush/learning/blob/master/RabbitMQ/02.%20RabbitMQ%20%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/images/2-2.png)
 
 ### 例子图
 
-![](/home/gothicrush/Desktop/learning/RabbitMQ/02. RabbitMQ 核心概念/images/2-1.png)
+![](https://github.com/gothicrush/learning/blob/master/RabbitMQ/02.%20RabbitMQ%20%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/images/2-1.png)
 
 ### 核心概念
 
@@ -71,7 +71,7 @@
 
 #### direct
 
-![](/home/gothicrush/Desktop/learning/RabbitMQ/02. RabbitMQ 核心概念/images/direct.jpg)
+![](https://github.com/gothicrush/learning/blob/master/RabbitMQ/02.%20RabbitMQ%20%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/images/direct.jpg)
 
 * 消息中的路由键如果和 Exchange 中的 binding key 一致，则交换器就将消息发到对应的队列中
 * 路由键与队列名需要完全匹配，属于单播模式
@@ -81,7 +81,7 @@
 
 #### fanout
 
-![](/home/gothicrush/Desktop/learning/RabbitMQ/02. RabbitMQ 核心概念/images/fanout.jpg)
+![](https://github.com/gothicrush/learning/blob/master/RabbitMQ/02.%20RabbitMQ%20%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/images/fanout.jpg)
 
 * 每个发到 fanout 类型交换器的消息都会分到所有绑定到该交换器的队列上去
 * fanout 交换器不处理路由键，只是简单的将队列绑定到交换器上，每个发送到交换器的消息都会被转发到与该交换器绑定的所有队列上
@@ -89,7 +89,7 @@
 
 #### topic
 
-![](/home/gothicrush/Desktop/learning/RabbitMQ/02. RabbitMQ 核心概念/images/topic.jpeg)
+![](https://github.com/gothicrush/learning/blob/master/RabbitMQ/02.%20RabbitMQ%20%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/images/topic.jpeg)
 
 * topic 交换器将路由键和 Exchange 上的 Binding Key 进行模式匹配
 * 会将消息转发到所有匹配成功的队列上
