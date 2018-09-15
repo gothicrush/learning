@@ -30,7 +30,7 @@
 * D：用于组(多)播
 * E：保留，目前还没用
 
-![](/home/gothicrush/Desktop/learning/Network/04. 网咯层/01. IP地址与子网划分/images/地址分类.jpg)
+![](https://github.com/gothicrush/learning/blob/master/Network/04.%20%E7%BD%91%E5%92%AF%E5%B1%82/01.%20IP%E5%9C%B0%E5%9D%80%E4%B8%8E%E5%AD%90%E7%BD%91%E5%88%92%E5%88%86/images/%E5%9C%B0%E5%9D%80%E5%88%86%E7%B1%BB.jpg)
 
 
 
@@ -115,7 +115,7 @@
 
 #### 例子
 
-![](/home/gothicrush/Desktop/learning/Network/04. 网咯层/01. IP地址与子网划分/images/子网划分.jpeg)
+![](https://github.com/gothicrush/learning/blob/master/Network/04.%20%E7%BD%91%E5%92%AF%E5%B1%82/01.%20IP%E5%9C%B0%E5%9D%80%E4%B8%8E%E5%AD%90%E7%BD%91%E5%88%92%E5%88%86/images/%E5%AD%90%E7%BD%91%E5%88%92%E5%88%86.jpeg)
 
 
 
@@ -147,4 +147,4 @@
 
 
 
-![](/home/gothicrush/Desktop/learning/Network/04. 网咯层/01. IP地址与子网划分/images/无分类编制.jpeg)
+![](https://github.com/gothicrush/learning/blob/master/Network/04.%20%E7%BD%91%E5%92%AF%E5%B1%82/01.%20IP%E5%9C%B0%E5%9D%80%E4%B8%8E%E5%AD%90%E7%BD%91%E5%88%92%E5%88%86/images/%E6%97%A0%E5%88%86%E7%B1%BB%E7%BC%96%E5%88%B6.jpeg)
