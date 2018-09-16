@@ -90,7 +90,7 @@
 * 下载地址：http://www.rabbitmq.com/
 * 选择合适版本，注意要符合erlang版本
 
-![](https://github.com/gothicrush/learning/blob/master/RabbitMQ/01.%20%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6%E7%AE%80%E4%BB%8B%20%2B%20RabbitMQ%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85/images/rabbitmq%E4%B8%8B%E8%BD%BD.jpg`)
+![](https://github.com/gothicrush/learning/blob/master/RabbitMQ/01.%20%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6%E7%AE%80%E4%BB%8B%20%2B%20RabbitMQ%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85/images/rabbitmq%E4%B8%8B%E8%BD%BD.jpg)
 
 #### RabbitMQ安装
 
