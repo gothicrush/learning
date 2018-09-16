@@ -12,7 +12,7 @@
   * 基于队列实现
   * 队列使异步通讯成为可能
 
-  ![](/home/gothicrush/Desktop/learning/RabbitMQ/01. RabbitMQ简介/images/1-1.png)
+  ![](https://github.com/gothicrush/learning/blob/master/RabbitMQ/01.%20%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6%E7%AE%80%E4%BB%8B%20%2B%20RabbitMQ%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85/images/1-1.png)
 
 * 发布订阅模式 - Pub/Sub
 
@@ -20,7 +20,7 @@
   * 消息发布者将消息发布到这个节点上
   * 订阅者从主题中获取消息
 
-  ![](/home/gothicrush/Desktop/learning/RabbitMQ/01. RabbitMQ简介/images/1-2.png)
+  ![](https://github.com/gothicrush/learning/blob/master/RabbitMQ/01.%20%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6%E7%AE%80%E4%BB%8B%20%2B%20RabbitMQ%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85/images/1-2.png)
 
 
 
@@ -44,7 +44,7 @@
 
 * 选择合适的版本进行下载
 
-  ![](/home/gr/learning/RabbitMQ/01. 消息中间件简介 + RabbitMQ下载安装/images/erlang安装.png)
+  ![](https://github.com/gothicrush/learning/blob/master/RabbitMQ/01.%20%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6%E7%AE%80%E4%BB%8B%20%2B%20RabbitMQ%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85/images/erlang%E5%AE%89%E8%A3%85.png)
 
 #### erlang安装
 
@@ -90,7 +90,7 @@
 * 下载地址：http://www.rabbitmq.com/
 * 选择合适版本，注意要符合erlang版本
 
-![](/home/gr/learning/RabbitMQ/01. 消息中间件简介 + RabbitMQ下载安装/images/rabbitmq下载.jpg)
+![](https://github.com/gothicrush/learning/blob/master/RabbitMQ/01.%20%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6%E7%AE%80%E4%BB%8B%20%2B%20RabbitMQ%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85/images/rabbitmq%E4%B8%8B%E8%BD%BD.jpg`)
 
 #### RabbitMQ安装
 
