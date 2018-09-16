@@ -60,7 +60,7 @@ import "log"
 * 获取日志前缀
 
   ```go
-  
+  logger.Prefix()
   ```
 
 * 设置日志前缀
