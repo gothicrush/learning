@@ -1,3 +1,5 @@
+网址：https://www.w3resource.com/sql-exercises/sql-fromatting-output-exercises.php
+
 1.
 ```sql
 SELECT salesman_id, name, city, CONCAT(commission, '%') AS commission

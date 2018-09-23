@@ -1,3 +1,5 @@
+网址：https://www.w3resource.com/sql-exercises/sql-exercises-quering-on-multiple-table.php#SQLEDITOR
+
 1.
 ```sql
 SELECT s.name AS salesman_name, c.cust_name AS customer_name, c.city AS city
