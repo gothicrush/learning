@@ -368,7 +368,123 @@ FROM employees;
 ```sql
 SELECT
 FROM
+WHERE
 GROUP BY 
 ORDER BY
 ```
 
+#### HAVING 子句
+
+```sql
+SELECT
+FROM
+WHERE
+GROUP BY
+HAVING
+ORDER BY
+```
+
+
+
+### 连接查询
+
+#### 分类
+
+* 内连接
+  * 等值连接
+  * 非等值连接
+  * 自连接
+* 外连接
+  * 左外连接
+  * 右外连接
+  * 全外连接
+* 交叉连接：就是笛卡尔积
+
+#### 语法
+
+```sql
+SELECT 查询列表
+FROM 表1 AS 别名
+连接类型 表2 AS 别名
+ON 连接条件
+WHERE
+GROUP BY
+HAVING
+ORDER BY
+
+连接类型
+内连接：INNER JOIN，可以省略 INNER
+左外连接：LEFT JOIN
+右外连接：RIGHT JOIN
+全外连接：FULL JOIN
+交叉连接：CROSS JOIN
+```
+
+#### 例子
+
+```sql
+SELECT last_name, department_name
+FROM employees AS e
+INNER JOIN department AS d
+ON e.department_id = d.department_id;
+```
+
+#### 图例
+
+&&&&&代办
+
+
+
+### 子查询
+
+&&&&&代办
+
+#### 概念
+
+* 出现在其他语句内部的SELECT语句，称为子查询
+
+
+
+### 分页查询
+
+#### LIMIT的使用
+
+* 放在全部SQL语句最后
+
+* LIMIT 开始索引，条目个数
+
+* 如果开始索引是0，则可以省略
+
+* 例子
+
+  ```sql
+  
+  ```
+
+#### 分页通用写法
+
+```sql
+SELECT 查询列表
+FROM 表
+LIMIT (页码-1) * 每页条目个数, 每页条目个数;
+```
+
+### 联合查询
+
+#### 概念
+
+* 将多条查询语句的结果集合并为一个结果集
+* 关键字：UNION
+
+#### 例子
+
+```sql
+SELECT * FROM employees WHERE email LIKE '%a%'
+UNION
+SELECT * FROM employees WHERE department_id > 90;
+```
+
+#### 注意事项
+
+* 要求多条查询语句的查询结果列数相同
+* UNION关键字默认去重，如果不想去重则 UNION ALL可以包含重复项
