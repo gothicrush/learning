@@ -18,3 +18,11 @@
 * MySQL
 * Oracle
 * SQL Server
+
+
+
+### MySQL介绍
+
+* MySQL是一个关系型数据库
+* MySQL开源免费
+* MySQL由瑞典 MySQL AB公司开发，现在被Oracle收购
