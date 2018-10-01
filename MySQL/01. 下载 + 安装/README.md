@@ -4,7 +4,7 @@
 * 根据下图进行下载
 
 
-## Part 2 - 安装 [Linux]
+# Part 2 - 安装 [Centos 7]
 
 ### 检查是否已经安装有Mariadb/MySQL
 ```
@@ -43,7 +43,7 @@ sudo touch /etc/my.cnf
 ```
 sudo vim /etc/my.cnf
 ```
-输入以下内容
+* 输入以下内容
 ```
 [mysql]
 # 设置mysql客户端默认字符集
