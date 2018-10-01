@@ -95,29 +95,40 @@ append name -abc
 del name age gender color times
 ```
 
-==============================================
+### hash类型
 
-* 设置hash-person1：name narlinen
-```hset person1 name narlinen```
+* 设置hash : person1：name narlinen
+```
+hset person1 name narlinen
+```
 
-* 批量设置hash-person1：age 20，gender male，color red
-```hmset person1 age 20 gender male color red```
+* 批量设置hash : person1：age 20，gender male，color red
+```
+hmset person1 age 20 gender male color red
+```
 
-* 确保times不存在时，设置times 10
-```hsetnx person1 times 10```
+* 确保person1中times不存在时，设置times 10
+```
+hsetnx person1 times 10
+```
 
-* 使times自增1，查看
-* 使times自减1，查看
-* 使times增加2，查看
-* 使times减少2，查看
-* 使times增加1.5，查看
-* 使times减少1.5，查看
-```hincrby person1 times 1```
-```hincrby person1 times -1```
-```hincrby person1 times 2```
-```hincrby person1 times -2```
-```hincrbyfloat person1 times -1.5```
-```hincrbyfloat person1 times -1.5```
+* 使times自增1，使times自减1
+```
+hincrby person1 times 1
+hincrby person1 times -1
+```
+
+* 使times增加2，使times减少2
+```
+hincrby person1 times 2
+hincrby person1 times -2
+```
+
+* 使times增加1.5，使times减少1.5
+```
+hincrbyfloat person1 times -1.5
+hincrbyfloat person1 times -1.5
+```
 
 * 获取hash-person1：name
 ```
@@ -151,15 +162,19 @@ hkeys person1
 ```
 
 * 获取hash-person1中所有值
-```hvals person1```
+```
+hvals person1
+```
 
 * 删除person1中的name,age,gender,color,times
-```hdel person1 name age gender color times```
+```
+hdel person1 name age gender color times
+```
 
 * 删除person1
-```del person1```
-
-====================================================
+```
+del person1
+```
 
 ### list类型
 
@@ -167,124 +182,186 @@ hkeys person1
 ```
 lpush lista h g f e d c b a
 lrange lista 0 -1
-j```
+```
 
 * 以右插入创建列表listb，内容为a->b->c->d->e->f->g->h，并查看
-```rpush listb a b c d e f g h```
-```lrange listb 0 -1```
+```
+rpush listb a b c d e f g h
+lrange listb 0 -1
+```
 
 * 在lista的f元素前插入before_f，并查看
-```linsert lista before b before_b```
+```
+linsert lista before b before_b
+```
 
 * 在listb的f元素后插入after_f，并查看
-```linsert listb after b after_b```
+```
+linsert listb after b after_b
+```
 
 * 弹出lista的a元素，并查看
-```lpop lista```
+```
+lpop lista
+```
 
 * 弹出listb的d元素，并查看
-```rpop listh```
+```
+rpop listh
+```
 
 * 阻塞3秒后弹出lista的b元素，并查看
-```blpop lista 3000```
+```
+blpop lista 3000
+```
 
 * 阻塞3秒后弹出listb的g元素，并查看
-```brpop listb 3000```
+```
+brpop listb 3000
+```
 
 * 查看lista，再修改其第二个元素为new2，并查看
-```lrange lista 0 -1```<br>
-```lset lista 1 new2```<br>
-```lrange lista 0 -1```
+```
+lrange lista 0 -1
+lset lista 1 new2
+lrange lista 0 -1
+```
 
 * 获取lista中索引为1的元素
-```lindex lista 1```
+```
+lindex lista 1
+```
 
 * 获取lista的长度
-```llen lista```
+```
+llen lista
+```
 
 * 删除lista的before_f，并查看
-```lrem lista 1 before_b```
+```
+lrem lista 1 before_b
+```
 
 * 删除listb的after_f，并查看
-```lrem listb -1 after_b```
+```
+lrem listb -1 after_b
+```
 
 * 查看listb，然后删除listb的头尾两个元素，并查看
-```lrange listb 0 -1```<br>
-```ltrim listb 1 -2```<br>
-```lrange listb 0 -1```
+```
+lrange listb 0 -1
+ltrim listb 1 -2
+lrange listb 0 -1
+```
 
 * 删除lista和listb
-```del lista listb```
+```
+del lista listb
+```
 
-============================================================
+### set类型
 
 * 创建集合seta，内容为a,b,c,d
-```sadd seta a b c d```
+```
+sadd seta a b c d
+```
 
 * 创建集合setb，内容为d,e,f,g
-```sadd setb d e f g```
+```
+sadd setb d e f g
+```
 
 * 获取集合seta的元素个数
-```scard seta```
+```
+scard seta
+```
 
 * 判断e是否为seta和setb的成员
-```sismember seta e```<br>
-```sismember setb e```
+```
+sismember seta e
+sismember setb e
+```
 
 * 随机选出seta的一个元素
-```srandmember seta```
+```
+srandmember seta
+```
 
 * 获取seta中所有的元素
-```smembers seta```
+```
+smembers seta
+```
 
 * 查看seta和setb的交集，然后保存为setabinter
-```sinter seta setb```<br>
-```sinterstore setabinter seta setb```
+```
+sinter seta setb
+sinterstore setabinter seta setb
+```
 
 * 查看seta和setb的并集，然后保存为setabunion
-```sunion seta setb```<br>
-```sunionstore setabunion seta setb```
+```
+sunion seta setb
+sunionstore setabunion seta setb
+```
 
 * 查看seta和setbd的差集，然后保存为setabdiff
-```sdiff seta setb```<br>
-```sdiffstore setabdiff seta setb```
+```
+sdiff seta setb
+sdiffstore setabdiff seta setb
+```
 
 * 删除setb的d元素
-```srem setb d```
+```
+srem setb d
+```
 
 * 删除seta和setb
-```del seta setb```
+```
+del seta setb
+```
 
-================================================================
+### zset类型
 
 * 创建zset myzset，内容为1 narlinen 2 mafuyu 3 miuna 4 random
-```zadd myzset 1 narlinen 2 mafuyu 3 miuna 4 random```
+```
+zadd myzset 1 narlinen 2 mafuyu 3 miuna 4 random
+```
 
 * 获取myzset的个数
-```zcard myzset```
+```
+zcard myzset
+```
 
 * 删除random
-```zrem myzset random```
+```
+zrem myzset random
+```
 
 * 获取narlinen的score
-```zscore myzset narlinen```
+```
+zscore myzset narlinen
+```
 
-【未完待续】
-
-=================================================================
+### RDB|AOF
 
 * 设置redis-7654中键值对name-narlinen，并用rdb备份为7654.rdb，修改name为other
-```set name narlinen```
-```bgsave```
-```set name other```
+```
+set name narlinen
+bgsave
+set name other
+```
 
 * 退出redis-7654，重新打开redis-7654，查看name的值是不是narlinen
-```get name```
+```
+get name
+```
 
-=================================================================
-
-* 设置redis-4567中键值对age-20，并用aof每命令备份7654.aof，修改age为21
-```set age 20```
+* 设置redis-4567中键值对age-20，并用aof命令备份7654.aof，修改age为21
+```
+set age 20
+```
 
 * 退出redis-4567，重新打开redis-4567，查看age是不是20
-```get age 20```
+```
+get age 20
+```
