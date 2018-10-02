@@ -1,4 +1,21 @@
+### 下载|安装
+
+* 下载redis
+
+  ```bash
+  https://redis.io/download
+  ```
+
+* 安装路径为/usr/local/redis
+
+  ```bash
+  sudo mv redis /usr/local/redis
+  cd /usr/local/redis
+  sudo make && sudo make install
+  ```
+
 ### 配置|启动|连接
+
 * 配置新的redis-server，其端口号为6789，以守护线程，工作目录为"/home/narlinen"，日志文件名为"log-6789.log"
 ```
 vim conf/redis-6789.conf
@@ -17,18 +34,19 @@ src/redis-server conf/redis-6666.conf
 
 * 查看是否成功启动redis-server
 ```
-ps -ef | grep redis-
+ps -ef | grep redis
 ```
 
-* 使用redis-cli连接redis-server，并退出
+* 使用redis-cli连接redis-server，测试是否连接成功，最后并退出
 ```
-src/redis-cli -p 6666
-redis> exit
+src/redis-cli -h 127.0.0.1 -p 6666
+127.0.0.1:6666> ping
+127.0.0.1:6666> exit
 ```
 
 * 关闭redis-server
 ```
-src/redis-cli -p shutdown
+src/redis-cli -p 6666 shutdown
 ```
 
 ### string类型
@@ -365,3 +383,94 @@ set age 20
 ```
 get age 20
 ```
+
+
+### 慢查询
+
+* 配置慢查询队列长度为100
+
+  ```bash
+  slowlog-max-len 100
+  ```
+
+* 配置命令时间超过10毫秒算慢命令
+
+  ```bash
+  slowlog-log-slower-than 10000
+  ```
+
+* 启动redis-server，连接到该server，然后修改慢查询队列长度为200，超时时间为0
+
+  ```bash
+  redis-server configurations/6666.conf
+  redis-cli -h 127.0.0.1 -p 6666
+  127.0.0.1:6666> config set slowlog-max-len 200
+  127.0.0.1:6666> config set slowlog-log-slower-than 0
+  ```
+
+* 写入键值对 hello-world，today-tomorrow，读取hello的值
+
+  ```bash
+  127.0.0.1:6666> set hello world
+  127.0.0.1:6666> set today tomorrow
+  127.0.0.1:6666> get hello
+  ```
+
+* 查询此时慢查询队列中元素个数
+
+  ```bash
+  127.0.0.1:6666> slowlog len
+  ```
+
+* 查询每个慢查询元素的信息
+
+  ```bash
+  127.0.0.1:6666> slowlog get[0]
+  127.0.0.1:6666> slowlog get[1]
+  127.0.0.1:6666> slowlog get[2]
+  ```
+
+* 清空慢查询队列，再次查看队列中元素个数
+
+  ```bash
+  127.0.0.1:6666> slowlog reset
+  127.0.0.1:6666> slowlog len
+  ```
+
+
+
+### 发布订阅
+
+* 创建3个client，A,B,C，其中A订阅voice:of:redis，B订阅voice:of:nosql，C两个都订阅
+
+  ```bash
+  127.0.0.1:6666(client-A)> subscribe voice:of:redis
+  127.0.0.1:6666(client-B)> subscribe voice:of:nosql
+  127.0.0.1:6666(client-C)> subscribe voice:of:redis
+  127.0.0.1:6666(client-C)> subscribe voice:of:nosql
+  ```
+
+* voice:of:redis发布信息"I'm voice of redis"，voice:of:nosql发布信息"I'm voice of nosql"，观察A,B,C的状态
+
+  ```&gt;bash
+  127.0.0.1:6666(D)> publish voice:of:redis "I'm voice of redis"
+  127.0.0.1:6666(D)> publish voice:of:nosql "I'm voice of nosql"
+  ```
+
+* C取消订阅voice:of:nosql，voice:of:redis和voice:of:nosql都再次发布刚刚的信息，观察C的状态
+
+  ```bash
+  127.0.0.1:6666(client-C)> unsubscribe voice:of:nosql
+  127.0.0.1:6666(client-1)> publish voice:of:redis
+  127.0.0.1:6666(client-2)> publish voice:of:nosql
+  ```
+
+* 查询有订阅者的频道，并查看各自有多少人订阅
+
+  ```bash
+  127.0.0.1:6666(D)> pubsub channels
+  127.0.0.1:6666(D)> pubsub numsub voice:of:redis
+  127.0.0.1:6666(D)> pubsub numsub voice:of:nosql
+  ```
+
+  

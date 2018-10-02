@@ -1,6 +1,31 @@
 ### redis是什么
 
-- 开源|免费|高性能|单线程的键值对缓存系统
+- 键值对存储系统
+
+### redis特点
+
+* 开源免费
+* 支持多种编程语言
+* 高性能
+  * 数据存储在内存中
+  * 用C语言编写
+  * 单线程模型
+* 支持持久化
+  * 支持RDB和AOF两种持久化方式
+* 支持多种数据结构
+  * string, list, hash, set, sorted set
+  * bitmap, hyperloglog, geo
+* 功能丰富
+  * 慢查询
+  * pipeline
+  * 发布订阅
+* 简单
+  * 仅仅用C语言，5w行
+  * 不依赖第三方库
+  * 单线程模型
+* 具有主从复制，高可用，分布式功能
+  * redis-sentinel
+  * redis-cluster
 
 ### redis典型使用场景
 
@@ -12,11 +37,22 @@
 
 ### redis下载与安装
 
-| 操作 | 说明                               |
-| ---- | ---------------------------------- |
-| 下载 | http://download.redis.io/releases/ |
-| 解压 | tar -zxvf redis.tar.gz             |
-| 安装 | cd redis && make && make install   |
+| 操作 | 说明                             |
+| ---- | -------------------------------- |
+| 下载 | https://redis.io/download        |
+| 解压 | tar -zxvf redis.tar.gz           |
+| 安装 | cd redis && make && make install |
+
+### redis/src目录文件
+
+| 文件名           | 功能              |
+| ---------------- | ----------------- |
+| redis-server     | redis服务器       |
+| redis-cli        | redis客户端       |
+| redis-benchmark  | redis性能测试工具 |
+| redis-check-aof  | AOF文件修复工具   |
+| redis-check-dump | RDB文件修复工具   |
+| redis-sentinel   | sentinel服务器    |
 
 ### 启动与关闭redis服务端
 
@@ -26,14 +62,14 @@
 | 配置文件启动 | ${redis}/src/redis-server config_file.conf |
 | 动态参数启动 | ${redis}/src/redis-server --port 6380      |
 | 检查是否启动 | ps -ef \| grep redis                       |
-| 关闭服务端   | ${redis}/src/redis-cli shutdown            |
+| 关闭服务端   | ${redis}/src/redis-cli -p 6380 shutdown    |
 
 ### 启动与关闭redis客户端
 
-| 操作 | 说明                   |
-| ---- | ---------------------- |
-| 启动 | ${redis}/src/redis-cli |
-| 关闭 | exit                   |
+| 操作 | 说明                                     |
+| ---- | ---------------------------------------- |
+| 启动 | ${redis}/src/redis-cli -h {ip} -p {port} |
+| 关闭 | exit                                     |
 
 ### redis配置文件
 
@@ -43,5 +79,3 @@
 | port      | redis占用端口          | 6379   |
 | logfile   | redis系统日志          |        |
 | dir       | redis工作目录          |        |
-
-### 
