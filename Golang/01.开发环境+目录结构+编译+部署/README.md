@@ -36,4 +36,8 @@ golang 工作目录，项目的源码放在这个目录下
 ```
 
 
+<<<<<<< HEAD
 go build -o client.exe IM-CMD/client  // 在 src 下执行 go build
+=======
+go build -o client.exe IM-CMD/client  // 在 src 下执行 go build
+>>>>>>> ad926c08f98d1bad4d0b2cbdd5f7b947cedfb3b0
