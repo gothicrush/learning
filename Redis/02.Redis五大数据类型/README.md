@@ -64,7 +64,6 @@
 | ------------ | ------------------------------------------------------- | ---------------------------------- | ------------------------------------------------------------ | ------ |
 | hset         | hset key field value                                    | 设置key对应field的vlaue            | 如果key不存在，则新建field-value                             | O(1)   |
 | hsetnx       | hsetnx key field value                                  | 当不存在field时进行设置            | 如果file存在，则不执行                                       | O(1)   |
-| hset xx      | hset key field value xx                                 | 当存在field时进行设置              | 如果file不存在，则不执行                                     | O(1)   |
 | hmset        | hmset key field1 value1 field2 value2 ... fieldN valueN | 批量设置field-value                | 果field不存在，则创建新field-value                           | O(n)   |
 | hget         | hget key field                                          | 获取key对应field的value            | 如果field不存在，则返回(nil)                                 | O(1)   |
 | hmget        | hmget key field1 field2 ... fieldN                      | 批量返回filed对应的value           | 如果key不存在，则返回nil                                     | O(n)   |
