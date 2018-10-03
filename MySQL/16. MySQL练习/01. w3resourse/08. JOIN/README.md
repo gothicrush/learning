@@ -1,5 +1,7 @@
-1.
-```
+网址：https://www.w3resource.com/sql-exercises/sql-joins-exercises.php#SQLEDITOR
+
+.
+```mysql
 SELECT s.name AS salesman_name, c.cust_name AS customer_name, s.city AS city
 FROM salesman AS s
 JOIN customer AS c
@@ -58,9 +60,12 @@ INNER JOIN customer AS c
 ON o.customer_id = c.customer_id;
 ```
 
-7.
+7.[不懂]
 ```mysql
-
+SELECT * 
+FROM orders AS o
+NATURAL JOIN customer AS c  
+NATURAL JOIN salesman AS s;
 ```
 
 8.
@@ -81,9 +86,79 @@ ON c.salesman_id = s.salesman_id
 WHERE c.grade < 300;
 ```
 
+10.[题目看不懂]
+```mysql
+SELECT a.cust_name,a.city, b.ord_no,
+b.ord_date,b.purch_amt AS "Order Amount" 
+FROM customer a 
+LEFT OUTER JOIN orders b 
+ON a.customer_id=b.customer_id 
+order by b.ord_date;
+```
+
+11.[题目看不懂]
+```mysql
+SELECT a.cust_name,a.city, b.ord_no,
+b.ord_date,b.purch_amt AS "Order Amount", 
+c.name,c.commission 
+FROM customer a 
+LEFT OUTER JOIN orders b 
+ON a.customer_id=b.customer_id 
+LEFT OUTER JOIN salesman c 
+ON c.salesman_id=b.salesman_id;
+```
+
+12.[题目看不懂]
+```mysql
+SELECT a.cust_name,a.city,a.grade, 
+b.name AS "Salesman", b.city 
+FROM customer a 
+RIGHT OUTER JOIN salesman b 
+ON b.salesman_id=a.salesman_id 
+ORDER BY b.salesman_id;
+```
+
+13.[题目看不懂]
+```mysql
+SELECT a.cust_name,a.city,a.grade, 
+b.name AS "Salesman", 
+c.ord_no, c.ord_date, c.purch_amt 
+FROM customer a 
+RIGHT OUTER JOIN salesman b 
+ON b.salesman_id=a.salesman_id 
+RIGHT OUTER JOIN orders c 
+ON c.customer_id=a.customer_id;
+```
+
+14.[题目看不懂]
+```mysql
+SELECT a.cust_name,a.city,a.grade, 
+b.name AS "Salesman", 
+c.ord_no, c.ord_date, c.purch_amt 
+FROM customer a 
+RIGHT OUTER JOIN salesman b 
+ON b.salesman_id=a.salesman_id 
+LEFT OUTER JOIN orders c 
+ON c.customer_id=a.customer_id 
+WHERE c.purch_amt>=2000 
+AND a.grade IS NOT NULL;
+```
+
+15.
+```mysql
+SELECT c.cust_name AS customer_name, c.city AS customer_city, o.ord_no AS order_no, o.ord_date AS order_date, o.purch_amt AS purch_amount
+FROM customer AS c 
+FULL JOIN orders AS o
+ON c.customer_id = o.customer_id;
+```
+
 16.
 ```mysql
-SELECT c.cust_name AS
+SELECT c.cust_name AS customer_name, c.city AS customer_city, o.ord_no AS order_no, o.ord_date AS order_date, o.purch_amt AS purch_amount
+FROM customer AS c 
+FULL JOIN orders AS o
+ON c.customer_id = o.customer_id
+WHERE c.grade IS NOT NULL;
 ```
 
 17.
@@ -175,12 +250,19 @@ ON dp.DPT_CODE = de.EMP_DEPT;
 
 27.
 ```mysql
-
+SELECT e.EMP_FNAME AS first_name, e.EMP_LNAME AS last_name, d.DPT_NAME AS department_name, d.DPT_ALLOTMENT AS department_allotment
+FROM emp_details AS e
+JOIN emp_department AS d
+ON e.EMP_DEPT = d.DPT_CODE;
 ```
 
 28.
 ```mysql
-
+SELECT e.EMP_FNAME AS first_name, e.EMP_LNAME AS last_name, d.DPT_NAME AS department_name, d.DPT_ALLOTMENT AS department_allotment
+FROM emp_details AS e
+JOIN emp_department AS d
+ON e.EMP_DEPT = d.DPT_CODE
+WHERE d.DPT_ALLOTMENT > 50000;
 ```
 
 29.
@@ -192,10 +274,3 @@ ON e.EMP_DEPT = d.DPT_CODE
 GROUP BY d.DPT_CODE
 HAVING COUNT(*) > 2;
 ```
-
-
-
-
-
-
-
