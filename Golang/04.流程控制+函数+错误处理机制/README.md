@@ -30,7 +30,7 @@
   } else if 条件n {   // { } 必须要有，且左大括号不能换行，else必须和右大括号同行
       
   } else {           // { } 必须要有，且左大括号不能换行，else必须和右大括号同行
-                     // 多分支中 else 不是必须的
+                           // 多分支中 else 不是必须的
   }
   ```
 
@@ -47,11 +47,11 @@
   ```go
   switch 表达式 {
       case 表达式1,表达式2,...:
-          语句1
+        语句1
       case 表达式3:
       	语句2
       default:
-      	语句
+      	语句3
   }
   
   
@@ -187,7 +187,7 @@
 ```go
 func 函数名 (形参列表) (返回值列表) { // 左大括号不能换行
     //执行语句
-    return xxx //可有可无
+    return xxx
 }
 ```
 
@@ -208,7 +208,10 @@ func test(a,b,c int) {}
 * 不指定返回值名称
 
   ```go
-  
+  func add(a int, b int) int {
+      result = a + b
+      return result
+  }  
   ```
 
 * 指定返回值名称
@@ -282,8 +285,6 @@ sum(1,2,3,4,5,6,7)
   全局变量定义 -> init函数 -> main函数
   ```
 
-  ![](/home/gothicrush/Desktop/golang/my_golang笔记/1.png)
-
 ### 匿名函数
 
 * 只调用一次的匿名函数
@@ -319,7 +320,8 @@ sum(1,2,3,4,5,6,7)
 ### 闭包
 
 ```概念
-闭包就是 一个函数A中定义另外一个函数B，且函数B中有使用到函数A中的局部变量，且函数A将函数B返回
+闭包就是 一个函数A中定义另外一个函数B
+且函数B中有使用到函数A中的局部变量，且函数A将函数B返回
 ```
 
 ### defer
@@ -368,7 +370,7 @@ sum(1,2,3,4,5,6,7)
 
 * 默认情况下，当发生错误(panic)后，程序就会崩溃
 * 如果希望当发生 panic 后，可以捕捉到 panic，并进行处理，使程序不崩溃，则需要进行错误处理
-* Go语法优雅，不支持传统的 try...catch....finally，而是使用 defer, panic, recover机制
+* Go语言不支持传统的 try...catch....finally，而是使用 defer, panic, recover机制
 * 流程：抛出一个panic，然后在 defer 语句中通过 recover 函数捕获这个 panic，并处理 
 
  ```go
