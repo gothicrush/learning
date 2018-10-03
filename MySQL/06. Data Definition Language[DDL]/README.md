@@ -53,7 +53,7 @@ CREATE TABLE 表名 (
 
   ```mysql
   ALTER TABLE 表名
-  CHANGE COLUMN 旧字段名 新字段名 类型【(长度)】【约束】;
+  MODIFY COLUMN 字段名 类型【(长度)】【约束】;
   ```
 
 * 添加新字段
