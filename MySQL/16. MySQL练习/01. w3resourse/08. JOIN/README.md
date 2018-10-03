@@ -1,11 +1,13 @@
-ELECT s.name AS salesman_name, c.cust_name AS customer_name, s.city AS city
+1.
+```
+SELECT s.name AS salesman_name, c.cust_name AS customer_name, s.city AS city
 FROM salesman AS s
 JOIN customer AS c
 ON s.city = c.city;
 ```
 
 2.
-```sql
+```mysql
 SELECT o.ord_no, o.purch_amt, c.cust_name, c.city
 FROM orders AS o
 JOIN customer AS c
@@ -14,7 +16,7 @@ WHERE o.purch_amt BETWEEN 500 AND 2000;
 ```
 
 3.
-```sql
+```mysql
 SELECT c.cust_name AS customer_name , s.name AS salesman_name
 FROM customer AS c
 JOIN salesman AS s
@@ -22,7 +24,7 @@ ON c.salesman_id = s.salesman_id;
 ```
 
 4.
-```sql
+```mysql
 SELECT c.cust_name AS customer_name, s.name AS salesman_name, commission
 FROM customer AS c
 JOIN salesman AS s
@@ -31,7 +33,7 @@ WHERE s.commission > 0.12;
 ```
 
 5.
-```sql
+```mysql
 SELECT c.cust_name AS customer_name, s.name AS salesman_name, commission
 FROM customer AS c
 JOIN salesman AS s
@@ -40,7 +42,7 @@ WHERE s.commission > 0.12;
 ```
 
 6.
-```sql
+```mysql
 SELECT 
     o.ord_no AS order_number,  
     o.ord_date AS order_date, 
@@ -57,12 +59,12 @@ ON o.customer_id = c.customer_id;
 ```
 
 7.
-```sql
+```mysql
 
 ```
 
 8.
-```sql
+```mysql
 SELECT c.cust_name AS customer_name, s.name AS salesman_name
 FROM customer AS c
 LEFT JOIN salesman AS s
@@ -71,7 +73,7 @@ ORDER BY s.salesman_id;
 ```
 
 9.
-```sql
+```mysql
 SELECT c.cust_name AS customer_name, c.grade AS grade, s.name AS salesman_name
 FROM customer AS c
 LEFT JOIN salesman AS s
@@ -79,13 +81,20 @@ ON c.salesman_id = s.salesman_id
 WHERE c.grade < 300;
 ```
 
-17.
-```sql
+16.
+```mysql
+SELECT c.cust_name AS
+```
 
+17.
+```mysql
+SELECT *
+FROM salesman AS s
+CROSS JOIN customer AS c;
 ```
 
 18.
-```sql
+```mysql
 SELECT *
 FROM salesman AS s
 CROSS JOIN customer AS c
@@ -93,7 +102,7 @@ WHERE s.city IS NOT NULL;
 ```
 
 19.
-```sql
+```mysql
 SELECT *
 FROM salesman AS s
 CROSS JOIN customer AS c
@@ -101,7 +110,7 @@ WHERE s.city IS NOT NULL AND c.grade IS NOT NULL;
 ```
 
 20.
-```sql
+```mysql
 SELECT *
 FROM salesman AS s
 CROSS JOIN customer AS c
@@ -109,7 +118,7 @@ WHERE s.city IS NOT NULL AND c.grade IS NOT NULL AND s.city != c.city;
 ```
 
 21.
-```sql
+```mysql
 SELECT *
 FROM company_mast AS cm
 JOIN item_mast AS im
@@ -117,7 +126,7 @@ ON cm.COM_ID = im.PRO_COM;
 ```
 
 22.
-```sql
+```mysql
 SELECT im.PRO_NAME AS product_name, im.PRO_PRICE AS product_price, cm.COM_NAME AS company_name
 FROM company_mast AS cm
 JOIN item_mast AS im
@@ -125,7 +134,7 @@ ON cm.COM_ID = im.PRO_COM;
 ```
 
 23.
-```sql
+```mysql
 SELECT cm.COM_NAME AS company_name, AVG(im.PRO_PRICE) AS average_price
 FROM company_mast AS cm
 JOIN item_mast AS im
@@ -134,7 +143,7 @@ GROUP BY cm.COM_NAME;
 ```
 
 24.
-```sql
+```mysql
 SELECT cm.COM_NAME AS company_name, AVG(im.PRO_PRICE) AS average_price
 FROM company_mast AS cm
 JOIN item_mast AS im
@@ -144,7 +153,7 @@ HAVING AVG(im.PRO_PRICE) >= 350;
 ```
 
 25.
-```sql
+```mysql
 SELECT cm.COM_NAME AS company_name, IM.PRO_NAME AS product_name, im.PRO_PRICE AS product_price
 FROM company_mast AS cm
 JOIN item_mast AS im
@@ -157,7 +166,7 @@ AND im.PRO_PRICE = (
 ```
 
 26.
-```sql
+```mysql
 SELECT *
 FROM emp_department dp
 JOIN emp_details de
@@ -165,16 +174,17 @@ ON dp.DPT_CODE = de.EMP_DEPT;
 ```
 
 27.
-```sql
+```mysql
+
 ```
 
 28.
-```sql
+```mysql
 
 ```
 
 29.
-```sql
+```mysql
 SELECT d.DPT_NAME AS DPT_NAME, COUNT(*) AS EMP_NUMBER
 FROM emp_department AS d
 JOIN emp_details AS e
