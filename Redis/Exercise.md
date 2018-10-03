@@ -49,6 +49,80 @@ src/redis-cli -h 127.0.0.1 -p 6666
 src/redis-cli -p 6666 shutdown
 ```
 
+### 通用命令
+
+* 设置 hello-world，hehe-haha，hen-cow
+
+  ```bash
+  mset hello world hehe haha hen cow
+  ```
+
+* 查询redis中he*的键
+
+  ```bash
+  keys he*
+  ```
+
+* 查询hehe的类型
+
+  ```bash
+  type hehe
+  ```
+
+* 查询数据库中key的数量
+
+  ```bash
+  dbsize
+  ```
+
+* 为hehe设置过其时间200秒
+
+  ```bash
+  expire hehe 200
+  ```
+
+* 查看hehe剩余过期时间
+
+  ```bash
+  ttl hehe
+  ```
+
+* 清除hehe过期时间
+
+  ```bash
+  persist hehe
+  ```
+
+* 为hen设置过其时间60秒
+
+  ```bash
+  expire hen 60
+  ```
+
+* 查看hen是否存在
+
+  ```bash
+  exists hen
+  ```
+
+* 60秒后再次查看hen是否存在
+
+  ```bash
+  exists hen
+  ```
+
+* 把hello，hehe，hen都删除
+
+  ```bash
+  del hello hehe hen
+  ```
+
+* 查询数据库中key的数量
+
+  ```bash
+  dbsize
+  ```
+
 ### string类型
 
 * 设置name-narlinen
@@ -61,9 +135,25 @@ set name narlinen
 mset age 20 gender male color red
 ```
 
+* 获取gender前3个字母
+```bash
+getrange gender 0 2
+```
+
+* 将gender第2个字母设置为z
+
+```bash
+setrange gender 1 z
+```
+
 * 在不存在times的前提下，设置times-0
 ```
 setnx times 0
+```
+
+* 在存在times的前提下，设置times-11
+```bash
+set times 11 xx
 ```
 
 * 获取name的值
@@ -128,6 +218,11 @@ hmset person1 age 20 gender male color red
 * 确保person1中times不存在时，设置times 10
 ```
 hsetnx person1 times 10
+```
+
+* 确保person1中times存在时，设置times 100
+```bash
+hset person1 times 100 xx
 ```
 
 * 使times自增1，使times自减1

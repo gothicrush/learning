@@ -4,7 +4,7 @@
 | ------------------ | ------------------------------------------------------------ | ---------- |
 | type key           | 判断key的数据类型                                            | O(1)       |
 | keys [pattern]     | 获取数据库中所有符合pattern的key                             | O(n)       |
-| dbsize             | 获取数据库的大小                                             | O(1)       |
+| dbsize             | 获取数据库的key的数量                                        | O(1)       |
 | exists key         | 判断是否存在key;存在返回1，不存在返回0                       | O(1)       |
 | del key [key...]   | 删除key;返回删除个数                                         | O(1)       |
 | expire key seconds | 设置key在seconds秒后过期                                     | O(1)       |
@@ -20,26 +20,27 @@
   - value最大大小为512MB
 - API
 
-| 命令      | 格式                 | 功能                     | 备注                                                | 复杂度 |
-| --------- | -------------------- | ------------------------ | --------------------------------------------------- | ------ |
-| set       | set key value        | 新建/修改key-value       | 不管key是否存在都可以                               | O(1)   |
-| setnx     | setnx key value      | 新建key-value            | 当key不存在才能执行                                 | O(1)   |
-| setxx     | setxx key value      | 修改key-value            | 当key存在时才能执行                                 | O(1)   |
-| mset      | mset k1 v1 k2 v2 ... | 批量设置key-value        | 如果不存在则创建；如果存在则修改                    | O(n)   |
-| setrange  |                      |                          |                                                     |        |
-| get       | get key              | 获取key对应的value       | 不存在key，返回nil                                  | O(1)   |
-| mget      | mget key1 key2 ...   | 批量获取key-value        | 如果key不存在，返回nil                              | O(n)   |
-| getrange  |                      |                          |                                                     |        |
-| getset    | getset key value     | 先获取key的value，再更新 | 如果key不存在，则返回nil，然后创建key-value         | O(1)   |
-| incr      | incr key             | 自增1                    | 如果key不存在，则创建并返回1；如果不能自增，则报错  | O(1)   |
-| incrby    | incrby key n         | 自增整数n                | 如果key不存在，则创建并返回n；如果不能自增，则报错  | O(1)   |
-| incrfloat | incrfloat key n      | 自增浮点数n              | 如果key不存在，则创建并返回n；如果不能自增，则报错  | O(1)   |
-| decr      | decr key             | 自减1                    | 如果key不存在，则创建并返回-1；如果不能自减，则报错 | O(1)   |
-| decrby    | decrby key n         | 自减整数n                | 如果key不存在，则创建并返回-n；如果不能自减，则报错 | O(1)   |
-| decrfloat | decrfloat key n      | 自减浮点数n              | 如果key不存在，则创建并返回-n；如果不能自减，则报错 | O(1)   |
-| append    | append key value     | 追加value                | 如果key不存在，则新建                               | O(1)   |
-| strlen    | strlen key           | 获取key对应value长度     |                                                     | O(1)   |
-| del       | del key              | 删除key-value            |                                                     | O(1)   |
+| 命令             | 格式                     | 功能                       | 备注                                                | 复杂度 |
+| ---------------- | ------------------------ | -------------------------- | --------------------------------------------------- | ------ |
+| set              | set key value            | 新建/修改key-value         | 不管key是否存在都可以                               | O(1)   |
+| setnx            | setnx key value          | 新建key-value              | 当key不存在才能执行                                 | O(1)   |
+| set key value xx | set key value xx         | 修改key-value              | 当key存在时才能执行                                 | O(1)   |
+| mset             | mset k1 v1 k2 v2 ...     | 批量设置key-value          | 如果不存在则创建；如果存在则修改                    | O(n)   |
+| setrange         |                          |                            |                                                     |        |
+| get              | get key                  | 获取key对应的value         | 不存在key，返回nil                                  | O(1)   |
+| mget             | mget key1 key2 ...       | 批量获取key-value          | 如果key不存在，返回nil                              | O(n)   |
+| getrange         | getrange key start end   | 获取字符串指定下标的所有值 |                                                     | O(1)   |
+| setrange         | setrange key index value | 设置指定下标对应的值       |                                                     |        |
+| getset           | getset key value         | 先获取key的value，再更新   | 如果key不存在，则返回nil，然后创建key-value         | O(1)   |
+| incr             | incr key                 | 自增1                      | 如果key不存在，则创建并返回1；如果不能自增，则报错  | O(1)   |
+| incrby           | incrby key n             | 自增整数n                  | 如果key不存在，则创建并返回n；如果不能自增，则报错  | O(1)   |
+| incrfloat        | incrfloat key n          | 自增浮点数n                | 如果key不存在，则创建并返回n；如果不能自增，则报错  | O(1)   |
+| decr             | decr key                 | 自减1                      | 如果key不存在，则创建并返回-1；如果不能自减，则报错 | O(1)   |
+| decrby           | decrby key n             | 自减整数n                  | 如果key不存在，则创建并返回-n；如果不能自减，则报错 | O(1)   |
+| decrfloat        | decrfloat key n          | 自减浮点数n                | 如果key不存在，则创建并返回-n；如果不能自减，则报错 | O(1)   |
+| append           | append key value         | 追加value                  | 如果key不存在，则新建                               | O(1)   |
+| strlen           | strlen key               | 获取key对应value长度       |                                                     | O(1)   |
+| del              | del key                  | 删除key-value              |                                                     | O(1)   |
 
 ### hash类型
 
@@ -59,25 +60,25 @@
 
 - API
 
-| 命令         | 格式                                                    | 功能                         | 备注                                                         | 复杂度 |
-| ------------ | ------------------------------------------------------- | ---------------------------- | ------------------------------------------------------------ | ------ |
-| hset         | hset key field value                                    | 设置key对应field的vlaue      | 如果key不存在，则新建field-value                             | O(1)   |
-| hsetnx       | hsetnx key field value                                  | 当不存在field时进行设置      | 如果file存在，则不执行                                       | O(1)   |
-| hsetxx       | hsetxx key field value                                  | 当存在field时进行设置        | 如果file不存在，则不执行                                     | O(1)   |
-| hmset        | hmset key field1 value1 field2 value2 ... fieldN valueN | 批量设置field-value          | 果field不存在，则创建新field-value                           | O(n)   |
-| hget         | hget key field                                          | 获取key对应field的value      | 如果field不存在，则返回(nil)                                 | O(1)   |
-| hmget        | hmget key field1 field2 ... fieldN                      | 批量返回filed对应的value     | 如果key不存在，则返回nil                                     | O(n)   |
-| hgetall      | hgetall key                                             |                              |                                                              | O(n)   |
-| hexists      | hexists key field                                       | 判断是否存在field            | 不存在，返回0；存在，返回1                                   | O(1)   |
-| hdel         | hdel key field                                          | 删除key对应的field-value     | 如果key不存在，则返回0                                       | O(1)   |
-| hlen         | hlen key                                                | 获取field的数量              | 如果key不存在，则返回0                                       | O(1)   |
-| hkeys        | hkeys key                                               | 获取所有的field              |                                                              | O(n)   |
-| hvals        | hvals key                                               | 获取所有的value              |                                                              | O(n)   |
-| hincr        | hincr key file                                          | 使field对应value自增1        | field不存在，创建新field-value，其value为1；如果不能自增则报错 | O(1)   |
-| hdecr        | hdecr key file                                          | 使field对应value自减1        | field不存在，创建新field-value，其value为-1；如果不能自减少则报错 | O(1)   |
-| hincrby      | hincrby key field num                                   | 使field对应value自增num      | field不存在，创建新field-value，其value为num；如果不能自增则报错 | O(1)   |
-| hdecrby      | hincrby key field num                                   | 使field对应value自减num      | field不存在，创建新field-value，其value为-num；如果不能自减少则报错 | O(1)   |
-| hincrbyfloat | hincrbyfloat key field floatnum                         | 使field对应value自增floatnum | field不存在，则创建field-value，其value为floatnum；如果不能自增则报错 | O(1)   |
+| 命令         | 格式                                                    | 功能                               | 备注                                                         | 复杂度 |
+| ------------ | ------------------------------------------------------- | ---------------------------------- | ------------------------------------------------------------ | ------ |
+| hset         | hset key field value                                    | 设置key对应field的vlaue            | 如果key不存在，则新建field-value                             | O(1)   |
+| hsetnx       | hsetnx key field value                                  | 当不存在field时进行设置            | 如果file存在，则不执行                                       | O(1)   |
+| hset xx      | hset key field value xx                                 | 当存在field时进行设置              | 如果file不存在，则不执行                                     | O(1)   |
+| hmset        | hmset key field1 value1 field2 value2 ... fieldN valueN | 批量设置field-value                | 果field不存在，则创建新field-value                           | O(n)   |
+| hget         | hget key field                                          | 获取key对应field的value            | 如果field不存在，则返回(nil)                                 | O(1)   |
+| hmget        | hmget key field1 field2 ... fieldN                      | 批量返回filed对应的value           | 如果key不存在，则返回nil                                     | O(n)   |
+| hgetall      | hgetall key                                             | 返回hash key对应所有的field和value |                                                              | O(n)   |
+| hexists      | hexists key field                                       | 判断是否存在field                  | 不存在，返回0；存在，返回1                                   | O(1)   |
+| hdel         | hdel key field                                          | 删除key对应的field-value           | 如果key不存在，则返回0                                       | O(1)   |
+| hlen         | hlen key                                                | 获取field的数量                    | 如果key不存在，则返回0                                       | O(1)   |
+| hkeys        | hkeys key                                               | 获取所有的field                    |                                                              | O(n)   |
+| hvals        | hvals key                                               | 获取所有的value                    |                                                              | O(n)   |
+| hincr        | hincr key file                                          | 使field对应value自增1              | field不存在，创建新field-value，其value为1；如果不能自增则报错 | O(1)   |
+| hdecr        | hdecr key file                                          | 使field对应value自减1              | field不存在，创建新field-value，其value为-1；如果不能自减少则报错 | O(1)   |
+| hincrby      | hincrby key field num                                   | 使field对应value自增num            | field不存在，创建新field-value，其value为num；如果不能自增则报错 | O(1)   |
+| hdecrby      | hincrby key field num                                   | 使field对应value自减num            | field不存在，创建新field-value，其value为-num；如果不能自减少则报错 | O(1)   |
+| hincrbyfloat | hincrbyfloat key field floatnum                         | 使field对应value自增floatnum       | field不存在，则创建field-value，其value为floatnum；如果不能自增则报错 | O(1)   |
 
 
 
@@ -139,13 +140,15 @@
 
   ```
   ranking -->  2    | 小明
-  		    5    | 小红
-  			12   | 阿强
+               5    | 小红
+               12   | 阿强
   ```
 
 - 特点
 
   - 元素不重复，有序
+  - score单独可以重复，value单独可以重复
+  - score-value不能重复
 
 - API
 

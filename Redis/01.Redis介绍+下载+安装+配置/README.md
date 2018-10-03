@@ -5,27 +5,38 @@
 ### redis特点
 
 * 开源免费
+
 * 支持多种编程语言
+
 * 高性能
   * 数据存储在内存中
   * 用C语言编写
   * 单线程模型
+    * 避免线程切换和竞争带来的性能消耗
+    * 一次只执行一条命令
+
 * 支持持久化
   * 支持RDB和AOF两种持久化方式
+
 * 支持多种数据结构
   * string, list, hash, set, sorted set
   * bitmap, hyperloglog, geo
+
 * 功能丰富
   * 慢查询
   * pipeline
   * 发布订阅
+
 * 简单
   * 仅仅用C语言，5w行
   * 不依赖第三方库
   * 单线程模型
+
 * 具有主从复制，高可用，分布式功能
   * redis-sentinel
   * redis-cluster
+
+  
 
 ### redis典型使用场景
 
