@@ -140,10 +140,11 @@ mset age 20 gender male color red
 getrange gender 0 2
 ```
 
-* 将gender第2个字母设置为z
+* 将gender第2个字母设置为z，并查看
 
 ```bash
 setrange gender 1 z
+get gender
 ```
 
 * 在不存在times的前提下，设置times-0
@@ -183,7 +184,7 @@ incrbyfloat times 1.5
 incrbyfloat times -1.5
 ```
 
-* 先获取time的值，再设置为10
+* 先获取times的值，再设置为10
 ```
 getset times 10
 ```
@@ -218,11 +219,6 @@ hmset person1 age 20 gender male color red
 * 确保person1中times不存在时，设置times 10
 ```
 hsetnx person1 times 10
-```
-
-* 确保person1中times存在时，设置times 100
-```bash
-hset person1 times 100 xx
 ```
 
 * 使times自增1，使times自减1
@@ -313,22 +309,22 @@ linsert lista before b before_b
 linsert listb after b after_b
 ```
 
-* 弹出lista的a元素，并查看
+* 弹出lista的最左元素，并查看
 ```
 lpop lista
 ```
 
-* 弹出listb的d元素，并查看
+* 弹出listb的最右元素，并查看
 ```
-rpop listh
+rpop listb
 ```
 
-* 阻塞3秒后弹出lista的b元素，并查看
+* 阻塞3秒后弹出lista的b最左元素，并查看
 ```
 blpop lista 3000
 ```
 
-* 阻塞3秒后弹出listb的g元素，并查看
+* 阻塞3秒后弹出listb的最右元素，并查看
 ```
 brpop listb 3000
 ```
@@ -352,12 +348,12 @@ llen lista
 
 * 删除lista的before_f，并查看
 ```
-lrem lista 1 before_b
+lrem lista 1 before_f
 ```
 
 * 删除listb的after_f，并查看
 ```
-lrem listb -1 after_b
+lrem listb -1 after_f
 ```
 
 * 查看listb，然后删除listb的头尾两个元素，并查看
