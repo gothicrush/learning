@@ -451,30 +451,113 @@ zrem myzset random
 zscore myzset narlinen
 ```
 
-### RDB|AOF
+### RDB
 
-* 设置redis-7654中键值对name-narlinen，并用rdb备份为7654.rdb，修改name为other
-```
-set name narlinen
-bgsave
-set name other
-```
-
-* 退出redis-7654，重新打开redis-7654，查看name的值是不是narlinen
-```
-get name
+* 设置redis-7654中rdb文件名为dump-7654.rdb，开启rdb压缩，开启校验和，设置出错时停止
+```bash
+rdbfilename dump-7654.rdb
+rdbcompression yes
+rdbchecksum yes
+stop-writes-on-bgsave-error yes
 ```
 
-* 设置redis-4567中键值对age-20，并用aof命令备份7654.aof，修改age为21
+* 连接redis-7654，设置键值对name-narlinen，并save，然后设置name为other
+```bash
+>> redis-server 7654.conf
+>> redis-cli -h 127.0.0.1 -p 7654
+127.0.0.1:7654> set name narlinen
+127.0.0.1:7654> save
+127.0.0.1:7654> set name other
 ```
-set age 20
+
+* 关闭redis-7654，重新打开redis-7654，查看name的值是不是narlinen
+```
+127.0.0.1:7654> exit
+>> redis-cli -h 127.0.0.1 -p 7654 shutdown
+>> redis-server 7654.conf
+>> redis-cli -h 127.0.0.1 -p 7654
+127.0.0.1:7654> get name
+```
+
+* 删除dump-7654.rdb，重连查看name是否存在
+```bash
+127.0.0.1:7654> exit
+>> redis-cli -h 127.0.0.1 -p 7654 shutdown
+>> rm -rf dump-7654.rdb
+>> redis-server 7654.conf
+>> redis-cli -h 127.0.0.1 -p 7654
+127.0.0.1:7654> get name
+```
+
+* 设置键值对age-20，并bgsave，然后设置age为30
+```
+127.0.0.1:7654> set age 20
+127.0.0.1:7654> bgsave
+127.0.0.1:7654> set age 30
 ```
 
 * 退出redis-4567，重新打开redis-4567，查看age是不是20
 ```
-get age 20
+127.0.0.1:7654> exit
+>> redis-cli -h 127.0.0.1 -p 7654 shutdown
+>> redis-server 7654.conf
+>> redis-cli -h 127.0.0.1 -p 7654
+127.0.0.1:7654> get age
 ```
 
+* 删除dump-7654.rdb，设置配置每60秒有1条命令就进行rbd持久化
+```bash
+127.0.0.1:7654> exit
+>> redis-cli -h 127.0.0.1 -p 7654 shutdown
+>> rm -rf dump-7654.rdb
+>> vim 7654.conf
+>>>> save 60 1
+```
+
+* 设置键值对 gender-male，退出重连，查看gender是不是male
+```bash
+>> redis-server 7654.conf
+>> redis-cli -h 127.0.0.1 -p 7654
+127.0.0.1:7654> set gender male
+127.0.0.1:7654> exit
+>> redis-cli -h 127.0.0.1 -p 7654 shutdown
+>> redis-server 7654.conf
+>> redis-cli -h 127.0.0.1 -p 7654
+127.0.0.1:7654> get gender
+```
+
+### AOF
+
+* 开启AOF，AOF文件名为9999.aof，模式为每条命令都记录，重写时不追加新命令，自动重写尺寸为64MB，自动重写增长率为100
+
+  ```bash
+  appendonly yes
+  appendfilename 9999.aof
+  appendfsync always
+  no-appendfsync-on-rewrite yes
+  auto-aof-rewrite-min-size 64mb
+  auto-aof-rewrite-percentage 100
+  ```
+
+* 开启redis-9999，连接redis-9999，设置键值对name-narlinen，退出redis，关闭redis-9999
+
+  ```bash
+  >> redis-server 9999.conf
+  >> redis-cli -h 127.0.0.1 -p 9999
+  127.0.0.1:9999> set name narlinen
+  127.0.0.1:9999> exit
+  >> redis-cli -h 127.0.0.1 -p 9999 shutdown
+  ```
+
+* 重新开启redis-9999，查看name是否存在
+
+  ```bash
+  >> redis-server 9999.conf
+  >> redis-cli -h 127.0.0.1 -p 9999
+  127.0.0.1:9999> get name
+  ```
+
+  
 
 ### 慢查询
 
@@ -565,3 +648,128 @@ get age 20
   ```
 
   
+
+### 主从复制
+
+* 开启redis-6666，redis-7777，redis-8888，redis-9999
+
+  ```bash
+  >> redis-server 6666.conf
+  >> redis-server 7777.conf
+  >> redis-server 8888.conf
+  >> redis-server 9999.conf
+  ```
+
+* 分别设置 port-6666|66-66，port-7777|77-77，port-8888|88-88，port-9999|99-99
+
+  ```bash
+  127.0.0.1:6666> set port 6666
+  127.0.0.1:6666> set 66 66 
+  127.0.0.1:7777> set port 7777
+  127.0.0.1:7777> set 77 77
+  127.0.0.1:8888> set port 8888
+  127.0.0.1:8888> set 88 88
+  127.0.0.1:9999> set port 9999
+  127.0.0.1:9999> set 99 99
+  ```
+
+* 通过slaveof命令，将6666，7777，8888成为9999的从节点
+
+  ```bash
+  127.0.0.1:6666> slaveof 127.0.0.1 9999
+  127.0.0.1:7777> slaveof 127.0.0.1 9999
+  127.0.0.1:8888> slaveof 127.0.0.1 9999
+  ```
+
+* 分别查看66，77，88是否还存在；查看是否有99；查看port
+
+  ```bash
+  127.0.0.1:6666> get 66
+  127.0.0.1:6666> get 99
+  127.0.0.1:6666> get port
+  127.0.0.1:7777> get 77
+  127.0.0.1:7777> get 99
+  127.0.0.1:7777> get port
+  127.0.0.1:8888> get 88
+  127.0.0.1:8888> get 99
+  127.0.0.1:8888> get port
+  ```
+
+* 在redis-9999添加name-narlinen
+
+  ```bash
+  127.0.0.1:9999> set name narlinen
+  ```
+
+* 查看redis-6666，redis-7777，redis-8888中是否存在name
+
+  ```bash
+  127.0.0.1:6666> get name
+  127.0.0.1:7777> get name
+  127.0.0.1:8888> get name
+  ```
+
+* 在redis-9999中删除name
+
+  ```bash
+  127.0.0.1:9999> del name
+  ```
+
+* 查看redis-6666，redis-7777，redis-8888中是否存在name
+
+  ```bash
+  127.0.0.1:6666> get name
+  127.0.0.1:7777> get name
+  127.0.0.1:8888> get name
+  ```
+
+* 令 redis-6666取消跟随redis-9999
+
+  ```bash
+  127.0.0.1:6666> slaveof no one
+  ```
+
+* 在redis-9999中加入键值对 age-20，分别在redis-6666，redis-7777，redis-8888中查看age
+
+  ```
+  127.0.0.1:9999> set age 20
+  127.0.0.1:6666> get age
+  127.0.0.1:7777> get age
+  127.0.0.1:8888> get age
+  ```
+
+* 通过slaveof ip port 的方式设置redis-6666，redis-7777，redis-8888为redis-9999的从节点
+
+  ```bash
+  slaveof 9999 127.0.0.1 # 6666.conf
+  slaveof 9999 127.0.0.1 # 7777.conf
+  slaveof 9999 127.0.0.1 # 8888.conf
+  ```
+
+* 在redis-9999添加name-narlinen
+
+  ```bash
+  127.0.0.1:9999> set name narlinen
+  ```
+
+* 查看redis-6666，redis-7777，redis-8888中是否存在name
+
+  ```bash
+  127.0.0.1:6666> get name
+  127.0.0.1:7777> get name
+  127.0.0.1:8888> get name
+  ```
+
+* 在redis-9999中删除name
+
+  ```bash
+  127.0.0.1:9999> del name
+  ```
+
+* 查看redis-6666，redis-7777，redis-8888中是否存在name
+
+  ```bash
+  127.0.0.1:6666> get name
+  127.0.0.1:7777> get name
+  127.0.0.1:8888> get name
+  ```
