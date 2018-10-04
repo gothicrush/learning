@@ -47,11 +47,11 @@
 
 #### 全量复制
 
-![](C:\Users\narli\Desktop\learning\Redis\06.Redis主从复制\images\全量复制.jpg)
+![全量复制](https://github.com/gothicrush/learning/blob/master/Redis/06.Redis%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/images/%E5%85%A8%E9%87%8F%E5%A4%8D%E5%88%B6.jpg)
 
 #### 部分复制
 
-![](C:\Users\narli\Desktop\learning\Redis\06.Redis主从复制\images\部分复制.jpg)
+![部分复制](https://github.com/gothicrush/learning/blob/master/Redis/06.Redis%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/images/%E9%83%A8%E5%88%86%E5%A4%8D%E5%88%B6.jpg)
 
  
 
