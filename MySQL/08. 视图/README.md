@@ -14,7 +14,7 @@
 #### 创建视图
 
 ```mysql
-CREATE VIEW 视图名
+CREATE VIEW IF NOT EXISTS 视图名
 AS
 查询语句
 ```
