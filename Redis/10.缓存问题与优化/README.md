@@ -67,7 +67,7 @@
 
   * 示意图
 
-    ![](C:\Users\narli\Desktop\learning\Redis\10.缓存问题与优化\images\缓存穿透.PNG)
+    ![](https://github.com/gothicrush/learning/blob/master/Redis/10.%E7%BC%93%E5%AD%98%E9%97%AE%E9%A2%98%E4%B8%8E%E4%BC%98%E5%8C%96/images/%E7%BC%93%E5%AD%98%E7%A9%BF%E9%80%8F.PNG)
 
 * 缓存穿透产生原因
 
@@ -85,7 +85,7 @@
 
     * 原理：当请求一个不存在的数据时，在redis层存储一个空对象
 
-      ![](C:\Users\narli\Desktop\learning\Redis\10.缓存问题与优化\images\缓存穿透解决方法1.PNG)
+      ![](https://github.com/gothicrush/learning/blob/master/Redis/10.%E7%BC%93%E5%AD%98%E9%97%AE%E9%A2%98%E4%B8%8E%E4%BC%98%E5%8C%96/images/%E7%BC%93%E5%AD%98%E7%A9%BF%E9%80%8F%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%951.PNG)
 
     * 缺点：占用更多的空间；可能导致数据不一致
 

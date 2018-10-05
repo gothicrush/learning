@@ -16,7 +16,7 @@
 
 - 架构图
 
-  ![](C:\Users\narli\Desktop\learning\Redis\07.Redis-Sentinel\images\sentinel架构图.PNG)
+  ![](https://github.com/gothicrush/learning/blob/master/Redis/07.Redis-Sentinel/images/sentinel%E6%9E%B6%E6%9E%84%E5%9B%BE.PNG)
 
 ### redis-sentinel故障转移流程
 
