@@ -66,7 +66,7 @@ START TRANSACTION; # 开启事务
     SQL语句2
     ...
     SQL语句n
-commit; # 回滚事务
+COMMIT; # 提交事务
 
 SET AUTOCOMMIT = 0; # 关闭事务自动提交功能
 START TRANSACTION; # 开启事务
@@ -74,7 +74,7 @@ START TRANSACTION; # 开启事务
     SQL语句2
     ...
     SQL语句n
-rollback; # 回滚事务
+ROLLBACK; # 回滚事务
 ```
 
 * SAVEPOINT的使用
@@ -86,6 +86,9 @@ rollback; # 回滚事务
   	SAVEPOINT a; # 设置保存点
   	SQL语句2
       ROLLBACK TO a; # 回滚到保存点
+      ...
+      SQL语句n
+  COMMIT;
   ```
 
 
@@ -94,12 +97,12 @@ rollback; # 回滚事务
 
 #### 四种隔离级别列表
 
-| 隔离级别                    | 避免脏读 | 避免不可重复读 | 避免幻读 |
-| --------------------------- | -------- | -------------- | -------- |
-| READ UNCOMMITTED            | ×        | ×              | ×        |
-| READ COMMITTED (oracle默认) | √        | ×              | ×        |
-| REPEATABLE READ (mysql默认) | √        | √              | ×        |
-| SERIALIZABLE                | √        | √              | √        |
+| 隔离级别                    | 译名     | 避免脏读 | 避免不可重复读 | 避免幻读 |
+| --------------------------- | -------- | -------- | -------------- | -------- |
+| READ UNCOMMITTED            | 读未提交 | ×        | ×              | ×        |
+| READ COMMITTED              | 读已提交 | √        | ×              | ×        |
+| REPEATABLE READ (mysql默认) | 可重复读 | √        | √              | ×        |
+| SERIALIZABLE                | 串行化   | √        | √              | √        |
 
 #### 查看当前隔离级别
 
