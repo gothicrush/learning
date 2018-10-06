@@ -15,7 +15,7 @@
 
 * 数据分区示意图
 
-  ![](C:\Users\narli\Desktop\learning\Redis\08.Redis-Cluster\images\数据分片.PNG)
+  ![](https://github.com/gothicrush/learning/blob/master/Redis/08.Redis-Cluster/images/%E6%95%B0%E6%8D%AE%E5%88%86%E7%89%87.PNG)
 
 * 数据分区方法
 
@@ -37,11 +37,11 @@
 
     * 原理：先定义Hash的取值范围，令它组成一个环，集群中每个节点负责一区间的Hash值，当一个数据加入集群时，让它加入哈希值按顺时针最近的节点
 
-      ![](C:\Users\narli\Desktop\learning\Redis\08.Redis-Cluster\images\一致性哈希1.PNG)
+      ![](https://github.com/gothicrush/learning/blob/master/Redis/08.Redis-Cluster/images/%E4%B8%80%E8%87%B4%E6%80%A7%E5%93%88%E5%B8%8C1.PNG)
 
-      ![](C:\Users\narli\Desktop\learning\Redis\08.Redis-Cluster\images\一致性哈希2.PNG)
+      ![](https://github.com/gothicrush/learning/blob/master/Redis/08.Redis-Cluster/images/%E4%B8%80%E8%87%B4%E6%80%A7%E5%93%88%E5%B8%8C2.PNG)
 
-      ![](C:\Users\narli\Desktop\learning\Redis\08.Redis-Cluster\images\一致性哈希3.PNG)
+      ![](https://github.com/gothicrush/learning/blob/master/Redis/08.Redis-Cluster/images/%E4%B8%80%E8%87%B4%E6%80%A7%E5%93%88%E5%B8%8C3.PNG)
 
     * 优点：节点伸缩只会影响最近邻近节点
 
@@ -51,7 +51,7 @@
 
     * 原理：预设虚拟槽，每个槽映射一个数据子集，一般比节点数大
 
-      ![](C:\Users\narli\Desktop\learning\Redis\08.Redis-Cluster\images\虚拟槽.PNG)
+      ![](https://github.com/gothicrush/learning/blob/master/Redis/08.Redis-Cluster/images/%E8%99%9A%E6%8B%9F%E6%A7%BD.PNG)
 
     * 优点：不会发生数迁移
 
@@ -65,7 +65,7 @@
 
 * 节点之间相互通信，客户端随机连接一个节点
 
-![](C:\Users\narli\Desktop\learning\Redis\08.Redis-Cluster\images\架构图.PNG)
+![](https://github.com/gothicrush/learning/blob/master/Redis/08.Redis-Cluster/images/%E6%9E%B6%E6%9E%84%E5%9B%BE.PNG)
 
 * 集群中节点共享信息
 * 当客户端访问一个节点拿数据时
@@ -90,7 +90,7 @@
 
 * 概念：当一个节点A与节点B连接时，由于节点数据共享，所以节点B可以自动连接上与节点A进行连接的节点
 
-  ![](C:\Users\narli\Desktop\learning\Redis\08.Redis-Cluster\images\meet操作.PNG)
+  ![](https://github.com/gothicrush/learning/blob/master/Redis/08.Redis-Cluster/images/meet%E6%93%8D%E4%BD%9C.PNG)
 
 * 命令
 

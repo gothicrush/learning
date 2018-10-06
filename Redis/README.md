@@ -9,6 +9,7 @@
 | Redis持久化                   | [查看](https://github.com/gothicrush/learning/tree/master/Redis/05.Redis%E6%8C%81%E4%B9%85%E5%8C%96) |
 | Redis主从复制                 | [查看](https://github.com/gothicrush/learning/tree/master/Redis/06.Redis%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6) |
 | Redis-Sentinel                | [查看](https://github.com/gothicrush/learning/tree/master/Redis/07.Redis-Sentinel) |
+| Redis-Cluster                 | [查看](https://github.com/gothicrush/learning/tree/master/Redis/08.Redis-Cluster) |
 | 缓存问题与优化                | [查看](https://github.com/gothicrush/learning/tree/master/Redis/10.%E7%BC%93%E5%AD%98%E9%97%AE%E9%A2%98%E4%B8%8E%E4%BC%98%E5%8C%96) |
 | Redigo                        | [查看](https://github.com/gothicrush/learning/tree/master/Redis/14.Redigo) |
 
