@@ -16,3 +16,15 @@
 ### 练习
 
 [练习题目](https://github.com/gothicrush/learning/blob/master/Redis/Exercise.md) 
+
+
+
+### TODO
+
+* sentinel练习
+* cluster搭建
+* cluster深入
+* redigo的使用-基础命令
+* redigo的使用-sentinel
+* redigo的使用-cluster
+* go-redis实现布隆过滤器
