@@ -25,9 +25,14 @@
   * k：k个哈希函数
 * 布隆过滤器构建过程
   * 初始化：原始二进制数字中的每一位都置为0
+
   * 一个数据经过1个哈希函数会得到一个位置，该位置置1
+
   * 一个数据经过k个哈希函数处理会，在原理二进制中会有k个位置被置1
+
   * 所有数据重复以上两步，即可构建出对于这个数据集的布隆过滤器
+
+    ![](https://github.com/gothicrush/learning/blob/master/Redis/09.%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8/images/%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8%E8%BF%87%E7%A8%8B.PNG)
 * 布隆过滤器判断有无
   * 一个数据经过k个哈希函数处理，查看得到的位置是否都为1，如果有至少一个位置不为1，则证明这个数据不在数据集中，反之，这个数据很大可能在这个数据集中（因为存在误差）
 * 布隆过滤器的误差
@@ -37,11 +42,11 @@
 
   * 误差计算
 
-    ![](C:\Users\narli\Desktop\learning\Redis\09.布隆过滤器\images\误差率计算.PNG)
+    ![](https://github.com/gothicrush/learning/blob/master/Redis/09.%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8/images/%E8%AF%AF%E5%B7%AE%E7%8E%87%E8%AE%A1%E7%AE%97.PNG)
 
   * 误差率统计
 
-    ![](C:\Users\narli\Desktop\learning\Redis\09.布隆过滤器\images\布隆过滤器误差率统计.png)
+    ![](https://github.com/gothicrush/learning/blob/master/Redis/09.%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8/images/%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8%E8%AF%AF%E5%B7%AE%E7%8E%87%E7%BB%9F%E8%AE%A1.png)
 
 
 

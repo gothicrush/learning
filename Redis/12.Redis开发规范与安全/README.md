@@ -4,7 +4,7 @@
 
 * 过程示意图
 
-  ![](C:\Users\narli\Desktop\learning\Redis\12.Redis开发规范与安全\images\crackit示意图.PNG)
+  ![](https://github.com/gothicrush/learning/blob/master/Redis/12.Redis%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83%E4%B8%8E%E5%AE%89%E5%85%A8/images/crackit%E7%A4%BA%E6%84%8F%E5%9B%BE.PNG)
 
 * 被攻击者存在问题
 
