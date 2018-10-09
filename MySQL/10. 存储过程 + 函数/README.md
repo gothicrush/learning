@@ -13,10 +13,16 @@
 * 创建语法
 
   ```mysql
+  DELIMITER $  # 不能加分号
+  
   CREATE PROCEDURE 存储过程名(参数列表)
   BEGIN
       存储过程语句块
-  END
+  END;
+  
+  $
+  
+  DELIMITER ;
   ```
 
 * 参数形式
@@ -39,17 +45,21 @@
 * 例子
 
   ```mysql
-  DELIMITER $;
+  DELIMITER $  # 不能加分号
   
   CREATE PROCEDURE myprocedure1()
   BEGIN
       INSERT INTO admin(username,passwd)
       VALUES ('jack','0000'),('lily','0000');
-  END $
+  END; 
+  
+  $
+  
+  DELIMITER ;
   ```
 
   ```mysql
-  DELIMITER $;
+  DELIMITER $ # 不能加分号
   
   CREATE PROCEDURE myprocedure2(IN name VARCHAR(20))
   BEGIN
@@ -58,11 +68,15 @@
       RIGHT JOIN girls AS g
       ON b.id = g.id
       WHERE b.name = name;
-  END $
+  END; 
+  
+  $
+  
+  DELIMITER ;
   ```
 
   ```mysql
-  DELIMITER $
+  DELIMITER $ # 不能加分号
   
   CREATE PROCEDURE myprocedure3(IN username VARCHAR(20), IN passwd VARCHAR(20))
   BEGIN
@@ -73,11 +87,15 @@
       WHERE admin.username = username AND admin.passwd = passwd;
       
       SELECT result; # 使用局部变量
-  END $
+  END; 
+  
+  $
+  
+  DELIMITER ;
   ```
 
   ```mysql
-  DELIMITER $
+  DELIMITER $ # 不能加分号
   
   CREATE PROCEDURE myprocedure4(IN girlName VARCHAR(20), OUT boyName VARCHAR(20))
   BEGIN
@@ -86,7 +104,11 @@
       JOIN girls AS g
       ON b.id = g.id
       WHERE g.name = girlName;
-  END $
+  END; 
+  
+  $
+  
+  DELIMITER ;
   ```
 
 ### 删除存储过程
@@ -97,10 +119,16 @@ DROP PROCEDURE myprocedure1;
 
 > 存储过程不能更改，如果想改变，可以先删除，再创建
 
-### 查看存储过程
+### 查看存储过程创建
 
 ```mysql
 SHOW CREATE PROCEDURE myprocedure1;
+```
+
+### 查看有哪些存储过程
+
+```mysql
+SHOW PROCEDURE STATUS;
 ```
 
 ### 调用存储过程
