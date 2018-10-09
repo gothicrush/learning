@@ -103,10 +103,10 @@
 
   ```mysql
   CASE 变量|表达式|字段
-  WHEN 要判断的值 THEN 返回的值1;
-  WHEN 要判断的值 THEN 返回的值2;
+  WHEN 要判断的值 THEN 返回的值1
+  WHEN 要判断的值 THEN 返回的值2
   ...
-  WHEN 要判断的值 THEN 返回的值n;
+  WHEN 要判断的值 THEN 返回的值n
   ELSE 要返回的值n+1;
   END CASE;
   ```
@@ -114,27 +114,34 @@
 * 类似多重if语句
 
   ```mysql
+  # 都不用加分号
+  
   CASE
-  WHEN 要判断的条件1 THEN 返回的值1;
-  WHEN 要判断的条件2 THEN 返回的值2;
-  ...
-  WHEN 要判断的条件n THEN 返回的值n;
-  ELSE 要返回的值n+1;
-  END CASE;
+      WHEN 要判断的条件1 THEN 返回的值1
+      WHEN 要判断的条件2 THEN 返回的值2
+      ...
+      WHEN 要判断的条件n THEN 返回的值n
+      ELSE 要返回的值n+1
+  END
   ```
 
   ```mysql
   DELIMITER $
   
-  CREATE PROCEDURE test(IN score INT)
+  CREATE PROCEDURE myprocedure5(IN target INT)
   BEGIN
-      CASE
-      WHEN score >= 90 AND score <=100 THEN SELECT 'A';
-      WHEN score >= 80 THEN SELECT 'B';
-      WHEN score >= 60 THEN SELECT 'C';
-      ELSE SELECT 'D';
-      END CASE;
-  END $
+      SELECT
+          CASE
+              WHEN target > 0 THEN 'greater than 0'
+              WHEN target = 0 THEN 'equalse 0'
+              ELSE 'less than 0'
+          END     # 都不用加分号
+      AS result;
+  END;
+  
+  $
+  
+  DELIMITER ;
   ```
 
 * 注意：ELSE可以省略，如果省略了且匹配不到，则返回NULL
@@ -175,7 +182,6 @@ END LOOP 【标签】;
 ```mysql
 【标签:】REPEAT
     循环体
-UNTIL 结束循环条件
-END REPEAT【标签】;
+UNTIL 结束循环条件 END REPEAT【标签】;
 ```
 
