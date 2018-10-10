@@ -1,10 +1,13 @@
 ### git结构
 
-* 工作区 ---(add)---> 暂存区 ---(commit)---> 版本库
+* 工作区 ---(add)---> 暂存区 ---(commit)---> 本地库
 
 * 示意图
 
+  ![](C:\Users\narli\Desktop\learning\Git\02.git工作结构+配置\images\git结构.png)
+
   
+
 
 ### git配置
 
