@@ -21,7 +21,7 @@
 
     * 示意图
 
-      ![](C:\Users\narli\Desktop\learning\Git\04.远程仓库使用与协作\images\同团队协作.PNG)
+      ![](https://github.com/gothicrush/learning/blob/master/Git/04.%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E4%BD%BF%E7%94%A8%E4%B8%8E%E5%8D%8F%E4%BD%9C/images/%E5%90%8C%E5%9B%A2%E9%98%9F%E5%8D%8F%E4%BD%9C.PNG)
   * 跨团队协作
     * 背景：A开发一个项目，有本地库和远程库，B想以非团队成员的方式参与项目的开发
 
@@ -32,7 +32,7 @@
 
     * 示意图
 
-      ![](C:\Users\narli\Desktop\learning\Git\04.远程仓库使用与协作\images\跨团队协作.PNG)
+      ![](https://github.com/gothicrush/learning/blob/master/Git/04.%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E4%BD%BF%E7%94%A8%E4%B8%8E%E5%8D%8F%E4%BD%9C/images/%E8%B7%A8%E5%9B%A2%E9%98%9F%E5%8D%8F%E4%BD%9C.PNG)
 
 * 查看本地库对应有哪些远程库
 
@@ -49,13 +49,13 @@
 
   网址：https://github.com
 
-  ![](C:\Users\narli\Desktop\learning\Git\04.远程仓库使用与协作\images\github登录与注册.PNG)
+  ![](https://github.com/gothicrush/learning/blob/master/Git/04.%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E4%BD%BF%E7%94%A8%E4%B8%8E%E5%8D%8F%E4%BD%9C/images/github%E7%99%BB%E5%BD%95%E4%B8%8E%E6%B3%A8%E5%86%8C.PNG)
 
 * 新建远程库
 
-  ![](C:\Users\narli\Desktop\learning\Git\04.远程仓库使用与协作\images\新建远程库1.PNG)
+  ![](https://github.com/gothicrush/learning/blob/master/Git/04.%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E4%BD%BF%E7%94%A8%E4%B8%8E%E5%8D%8F%E4%BD%9C/images/github%E7%99%BB%E5%BD%95%E4%B8%8E%E6%B3%A8%E5%86%8C.PNG)
 
-  ![](C:\Users\narli\Desktop\learning\Git\04.远程仓库使用与协作\images\新建远程库2.PNG)
+  ![](https://github.com/gothicrush/learning/blob/master/Git/04.%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E4%BD%BF%E7%94%A8%E4%B8%8E%E5%8D%8F%E4%BD%9C/images/%E6%96%B0%E5%BB%BA%E8%BF%9C%E7%A8%8B%E5%BA%932.PNG)
 
 * 本地库 --> 远程库
 

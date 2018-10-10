@@ -4,7 +4,7 @@
 
 * 示意图
 
-  ![](C:\Users\narli\Desktop\learning\Git\02.git工作结构+配置\images\git结构.png)
+  ![](https://github.com/gothicrush/learning/blob/master/Git/02.git%E5%B7%A5%E4%BD%9C%E7%BB%93%E6%9E%84%2B%E9%85%8D%E7%BD%AE/images/git%E7%BB%93%E6%9E%84.PNG)
 
   
 

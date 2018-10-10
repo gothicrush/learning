@@ -40,7 +40,7 @@
 
 - 快照示意图
 
-  ![](C:\Users\narli\Desktop\learning\Git\03.git核心操作\images\版本快照.PNG)
+  ![](https://github.com/gothicrush/learning/blob/master/Git/03.git%E6%A0%B8%E5%BF%83%E6%93%8D%E4%BD%9C/images/%E7%89%88%E6%9C%AC%E5%BF%AB%E7%85%A7.PNG)
 
 
 
@@ -90,15 +90,15 @@
 
   - --soft：工作区移动，暂存区，本地库都不移动
 
-    ![](C:\Users\narli\Desktop\learning\Git\03.git核心操作\images\soft模式.PNG)
+    ![](https://github.com/gothicrush/learning/blob/master/Git/03.git%E6%A0%B8%E5%BF%83%E6%93%8D%E4%BD%9C/images/soft%E6%A8%A1%E5%BC%8F.PNG)
 
   - --mixed：工作区，暂存区都移动，本地库不移动
 
-    ![](C:\Users\narli\Desktop\learning\Git\03.git核心操作\images\mixed模式.PNG)
+    ![](https://github.com/gothicrush/learning/blob/master/Git/03.git%E6%A0%B8%E5%BF%83%E6%93%8D%E4%BD%9C/images/mixed%E6%A8%A1%E5%BC%8F.PNG)
 
   - --hard：工作区，暂存区，本地库都移动
 
-    ![](C:\Users\narli\Desktop\learning\Git\03.git核心操作\images\hard模式.PNG)
+    ![](https://github.com/gothicrush/learning/blob/master/Git/03.git%E6%A0%B8%E5%BF%83%E6%93%8D%E4%BD%9C/images/hard%E6%A8%A1%E5%BC%8F.PNG)
 
 
 
@@ -138,7 +138,7 @@
 
   * 示意图
 
-    ![](C:\Users\narli\Desktop\learning\Git\03.git核心操作\images\分支示意图.PNG)
+    ![](https://github.com/gothicrush/learning/blob/master/Git/03.git%E6%A0%B8%E5%BF%83%E6%93%8D%E4%BD%9C/images/%E5%88%86%E6%94%AF%E7%A4%BA%E6%84%8F%E5%9B%BE.PNG)
 
 * 分支优点
 
