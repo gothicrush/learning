@@ -21,3 +21,10 @@
   | 仓库级别配置 | 只有当前仓库使用这份配置<br />当既有系统配置又有仓库配置时，以仓库配置为准 | git config user.name tom<br />git config user.email hello@outlook.com |
 
 * 配置存放路径：**~/gitconfig**
+
+
+
+### .gitignore
+
+* 用于忽略追踪，即在**.gitignore**文件中注明的某个文件或某类文件将被git所忽略
+* **.gitignore**文件与**.git**放在同一个目录下
