@@ -193,9 +193,34 @@
 
   ![](https://github.com/gothicrush/learning/blob/master/Network/05.%E4%BC%A0%E8%BE%93%E5%B1%82/images/%E5%9B%BE18.PNG)
 
-* 等待2**MSL**（Maximum Segment Lifetime：最大报文生存时间）的原因
+* 为什么要等待2**MSL**（Maximum Segment Lifetime：最大报文生存时间）
 
-  * 在第4次挥手数据包丢失时（1来1回两个**MSL**），能够重发一次数据包
+  * 场景
+
+    ```bash
+    A主动向B请求断开
+    
+    1: A --> FIN --> B
+    2: A <-- ACK <-- B
+    # 此时A --> B连接已关闭
+    3: A <-- FIN <-- B
+    4: A --> ACK --> B
+    ```
+
+  * 等待2MSL的原因是为了确保 `A->ACK->B` 能够送达
+
+  * 如果`A->ACK->B`丢失 -->  B认为`A<-FIN<-B`丢失，进行重传
+
+  * A接收到`A<-FIN<-B`重传所需时间：`A<-FIN<-B`超时时间 + `A<-FIN<-B`传输时间
+
+  * 为了保守与容易计算，保留两个**MSL**来确保A能接收到`A<-FIN<-B`重传包
+
+  * 一旦A接收到`A<-FIN<-B`，就重新等待2MSL
+
+  * 如果A在2MSL都没有收到`A<-FIN<-B`，则有两种情况
+
+    * B已经收到了A的包：可以关闭
+    * B端网络断开了：可以关闭
 
 
 
