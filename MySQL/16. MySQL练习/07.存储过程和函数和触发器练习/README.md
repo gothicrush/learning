@@ -496,4 +496,110 @@
 
   
 
+
+### 触发器
+
+* 什么是触发器
+
+  ```mysql
+  一类特殊的事务，可以监视某种DML操作，并触发相关DML操作
+  ```
+
+* 创建触发器的语法
+
+  ```mysql
+  DELIMITER $
+  
+  CREATE TRIGGER 触发器名字
+  BEFORE|AFTER INSERT|UPDATE|DELETE ON 表名
+  FOR EACH ROW
+  BEGIN
+      触发器的DML语句
+  END
+  
+  $
+  
+  DELIMITER ;
+  ```
+
+  
+
+* 创建两张表
+
+  goods：
+
+  | 商品主键 | 商品名 | 库存 |
+  | -------- | ------ | ---- |
+  | 1        | 电脑   | 28   |
+  | 2        | 自行车 | 12   |
+
+  orders：
+
+  | 订单主键 | 购买数量 | 商品外键 |
+  | -------- | -------- | -------- |
+  | 1        | 3        | 2        |
+  | 2        | 5        | 1        |
+
+  ```mysql
+  CREATE TABLE IF NOT EXISTS goods (
+      g_id INT,
+      g_name VARCHAR(20),
+      g_count INT,
+      
+      CONSTRAINT pk PRIMARY KEY(g_id),
+      CONSTRAINT uk UNIQUE(g_name)
+  );
+  
+  INSERT INTO goods(g_id,g_name,g_count) 
+  VALUES (1,'电脑',28),(2,'自行车',12);
+  
+  CREATE TABLE IF NOT EXISTS orders  (
+      o_id INT PRIMARY KEY,
+      o_count INT,
+      o_g INT,
+      
+      CONSTRAINT fk_goods_g_id FOREIGN KEY(o_g) REFERENCES goods(g_id)
+  );
+  
+  INSERT INTO orders(o_id,o_count,o_g) 
+  VALUES (1,3,2),(2,5,1);
+  ```
+
+* 创建触发器，让orders购买数量增多时，goods数量相应减少
+
+  ```mysql
+  DELIMITER $
+  
+  CREATE TRIGGER my_trigger
+  AFTER UPDATE ON orders
+  FOR EACH ROW
+  BEGIN
+      UPDATE goods
+      SET g_count = g_count - (new.o_count - old.o_count)
+      WHERE g_id = new.o_g;
+  END;
+  
+  $
+  
+  DELIMITER ;
+  ```
+
+* 查看所有的触发器
+
+  ```mysql
+  SHOW TRIGGERS;
+  ```
+
+* 查看my_trigger的创建语句
+
+  ```mysql
+  SHOW CREATE TRIGGERS my_trigger;
+  ```
+
+* 删除my_trigger
+
+  ```mysql
+  DROP TRIGGER my_trigger;
+  ```
+
   
