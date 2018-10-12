@@ -15,7 +15,7 @@
 * 面向字节流
   * TCP协议传输的数据以字节为单位，以流的形式传输
 
-  ![](C:\Users\narli\Desktop\learning\Network\05.传输层\images\图1.PNG)
+  ![](https://github.com/gothicrush/learning/blob/master/Network/05.%E4%BC%A0%E8%BE%93%E5%B1%82/images/%E5%9B%BE1.PNG)
 
 
 
@@ -23,11 +23,11 @@
 
 * 结构图
 
-  ![](C:\Users\narli\Desktop\learning\Network\05.传输层\images\图2.PNG)
+  ![](https://github.com/gothicrush/learning/blob/master/Network/05.%E4%BC%A0%E8%BE%93%E5%B1%82/images/%E5%9B%BE2.PNG)
 
 * 序号的含义每个数据包的第一个字节位置在全数据中的位置
 
-  ![](C:\Users\narli\Desktop\learning\Network\05.传输层\images\图3.PNG)
+  ![](https://github.com/gothicrush/learning/blob/master/Network/05.%E4%BC%A0%E8%BE%93%E5%B1%82/images/%E5%9B%BE3.PNG)
 
 * 源地址：发送方IP地址
 
@@ -80,9 +80,9 @@
 
 * 示意图
 
-  ![](C:\Users\narli\Desktop\learning\Network\05.传输层\images\图4.PNG)
+  ![](https://github.com/gothicrush/learning/blob/master/Network/05.%E4%BC%A0%E8%BE%93%E5%B1%82/images/%E5%9B%BE4.PNG)
 
-  ![](C:\Users\narli\Desktop\learning\Network\05.传输层\images\图5.PNG)
+  ![](https://github.com/gothicrush/learning/blob/master/Network/05.%E4%BC%A0%E8%BE%93%E5%B1%82/images/%E5%9B%BE5.PNG)
 
 
 
@@ -99,19 +99,19 @@
 
 * 示意图
 
-  ![](C:\Users\narli\Desktop\learning\Network\05.传输层\images\图6.PNG)
+  ![](https://github.com/gothicrush/learning/blob/master/Network/05.%E4%BC%A0%E8%BE%93%E5%B1%82/images/%E5%9B%BE6.PNG)
 
 * 流程图
 
-  ![](C:\Users\narli\Desktop\learning\Network\05.传输层\images\图7.PNG)
+  ![](https://github.com/gothicrush/learning/blob/master/Network/05.%E4%BC%A0%E8%BE%93%E5%B1%82/images/%E5%9B%BE7.PNG)
 
-  ![](C:\Users\narli\Desktop\learning\Network\05.传输层\images\图8.PNG)
+  ![](https://github.com/gothicrush/learning/blob/master/Network/05.%E4%BC%A0%E8%BE%93%E5%B1%82/images/%E5%9B%BE8.PNG)
 
-  ![](C:\Users\narli\Desktop\learning\Network\05.传输层\images\图9.PNG)
+  ![](https://github.com/gothicrush/learning/blob/master/Network/05.%E4%BC%A0%E8%BE%93%E5%B1%82/images/%E5%9B%BE9.PNG)
 
 * 选择性确认
 
-  ![](C:\Users\narli\Desktop\learning\Network\05.传输层\images\图10.PNG)
+  ![](https://github.com/gothicrush/learning/blob/master/Network/05.%E4%BC%A0%E8%BE%93%E5%B1%82/images/%E5%9B%BE10.PNG)
 
 * 超时重传时间计算
 
@@ -134,9 +134,9 @@
 
 * 流程图
 
-  ![](C:\Users\narli\Desktop\learning\Network\05.传输层\images\图11.PNG)
+  ![](https://github.com/gothicrush/learning/blob/master/Network/05.%E4%BC%A0%E8%BE%93%E5%B1%82/images/%E5%9B%BE11.PNG)
 
-  ![](C:\Users\narli\Desktop\learning\Network\05.传输层\images\图12.PNG)
+  ![](https://github.com/gothicrush/learning/blob/master/Network/05.%E4%BC%A0%E8%BE%93%E5%B1%82/images/%E5%9B%BE12.PNG)
 
 ### TCP拥塞控制
 
@@ -148,13 +148,13 @@
 
 * 示意图
 
-  ![](C:\Users\narli\Desktop\learning\Network\05.传输层\images\图13.PNG)
+  ![](https://github.com/gothicrush/learning/blob/master/Network/05.%E4%BC%A0%E8%BE%93%E5%B1%82/images/%E5%9B%BE13.PNG)
 
 
 
 #### 拥塞控制方案一
 
-* ![](C:\Users\narli\Desktop\learning\Network\05.传输层\images\图14.PNG)
+* ![](https://github.com/gothicrush/learning/blob/master/Network/05.%E4%BC%A0%E8%BE%93%E5%B1%82/images/%E5%9B%BE14.PNG)
 
 
 
@@ -168,11 +168,11 @@
 
 * 示意图
 
-  ![](C:\Users\narli\Desktop\learning\Network\05.传输层\images\图15.PNG)
+  ![](https://github.com/gothicrush/learning/blob/master/Network/05.%E4%BC%A0%E8%BE%93%E5%B1%82/images/%E5%9B%BE15.PNG)
 
 #### 拥塞控制方案二快恢复算法
 
-![](C:\Users\narli\Desktop\learning\Network\05.传输层\images\图16.PNG)
+![](https://github.com/gothicrush/learning/blob/master/Network/05.%E4%BC%A0%E8%BE%93%E5%B1%82/images/%E5%9B%BE16.PNG)
 
 
 
@@ -196,7 +196,7 @@
 
 * 为什么需要3次握手
 
-  ![](C:\Users\narli\Desktop\learning\Network\05.传输层\images\图17.PNG)
+  ![](https://github.com/gothicrush/learning/blob/master/Network/05.%E4%BC%A0%E8%BE%93%E5%B1%82/images/%E5%9B%BE17.PNG)
 
 * 总结
 
@@ -210,7 +210,7 @@
 
 * 示意图
 
-  ![](C:\Users\narli\Desktop\learning\Network\05.传输层\images\图18.PNG)
+  ![](https://github.com/gothicrush/learning/blob/master/Network/05.%E4%BC%A0%E8%BE%93%E5%B1%82/images/%E5%9B%BE18.PNG)
 
 * 等待2MSL的原因
 
