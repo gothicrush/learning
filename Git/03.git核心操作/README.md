@@ -117,8 +117,8 @@
   - git rm [filename]
   - git commit -m "信息" [filename]
 - 文件已经提交到本地库，删除后想恢复
-  - 使用 git reflog 查看【未来】版本的索引号
-  - 使用 git reset --hard 索引号 回到【未来】版本
+  - 使用 git reflog 查看最近的旧版本的索引号
+  - 使用 git reset --hard 索引号回到最近的旧版本
 
 
 
