@@ -24,7 +24,7 @@
 
   * A网关将所有去往B网段的静态路由配置为B的网关地址，B网关将所有去往A网段的静态路由配置为A的网关地址，从而实现路由汇总
 
-  ![](C:\Users\narli\Desktop\learning\Network\04. 网络层\02. 静态路由与动态路由\images\图1.PNG)
+  ![](https://github.com/gothicrush/learning/blob/master/Network/04.%20%E7%BD%91%E7%BB%9C%E5%B1%82/02.%20%E9%9D%99%E6%80%81%E8%B7%AF%E7%94%B1%E4%B8%8E%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1/images/%E5%9B%BE1.PNG)
 
 * 匹配顺序：优先匹配子网掩码大的网段，因为掩码大的网段范围小
 
@@ -39,11 +39,11 @@
 
   * 最大网段：0.0.0.0 / 0.0.0.0，这个网段代表互联网
 
-  ![](C:\Users\narli\Desktop\learning\Network\04. 网络层\02. 静态路由与动态路由\images\图2.PNG)
+  ![](https://github.com/gothicrush/learning/blob/master/Network/04.%20%E7%BD%91%E7%BB%9C%E5%B1%82/02.%20%E9%9D%99%E6%80%81%E8%B7%AF%E7%94%B1%E4%B8%8E%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1/images/%E5%9B%BE2.PNG)
 
-  ![](C:\Users\narli\Desktop\learning\Network\04. 网络层\02. 静态路由与动态路由\images\图3.PNG)
+  ![](https://github.com/gothicrush/learning/blob/master/Network/04.%20%E7%BD%91%E7%BB%9C%E5%B1%82/02.%20%E9%9D%99%E6%80%81%E8%B7%AF%E7%94%B1%E4%B8%8E%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1/images/%E5%9B%BE3.PNG)
 
-  ![](C:\Users\narli\Desktop\learning\Network\04. 网络层\02. 静态路由与动态路由\images\图4.PNG)
+  ![](https://github.com/gothicrush/learning/blob/master/Network/04.%20%E7%BD%91%E7%BB%9C%E5%B1%82/02.%20%E9%9D%99%E6%80%81%E8%B7%AF%E7%94%B1%E4%B8%8E%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1/images/%E5%9B%BE4.PNG)
 
 
 
@@ -64,7 +64,7 @@
 
 * RIP工作原理
 
-  ![](C:\Users\narli\Desktop\learning\Network\04. 网络层\02. 静态路由与动态路由\images\图5.PNG)
+  ![](https://github.com/gothicrush/learning/blob/master/Network/04.%20%E7%BD%91%E7%BB%9C%E5%B1%82/02.%20%E9%9D%99%E6%80%81%E8%B7%AF%E7%94%B1%E4%B8%8E%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1/images/%E5%9B%BE5.PNG)
 
 
 

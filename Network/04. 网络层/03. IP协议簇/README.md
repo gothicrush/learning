@@ -16,7 +16,7 @@
 
 ### IP协议数据报结构
 
-![](C:\Users\narli\Desktop\learning\Network\04. 网络层\03. IP协议簇\images\IP协议数据报.PNG)
+![](https://github.com/gothicrush/learning/blob/master/Network/04.%20%E7%BD%91%E7%BB%9C%E5%B1%82/03.%20IP%E5%8D%8F%E8%AE%AE%E7%B0%87/images/IP%E5%8D%8F%E8%AE%AE%E6%95%B0%E6%8D%AE%E6%8A%A5.PNG)
 
 | 组成     | 说明                                                         |
 | -------- | ------------------------------------------------------------ |
@@ -32,11 +32,11 @@
 
 * 片偏移计算
 
-  ![](C:\Users\narli\Desktop\learning\Network\04. 网络层\03. IP协议簇\images\片偏移计算.PNG)
+  ![](https://github.com/gothicrush/learning/blob/master/Network/04.%20%E7%BD%91%E7%BB%9C%E5%B1%82/03.%20IP%E5%8D%8F%E8%AE%AE%E7%B0%87/images/%E7%89%87%E5%81%8F%E7%A7%BB%E8%AE%A1%E7%AE%97.PNG)
 
 * 片偏移示例
 
-  ![](C:\Users\narli\Desktop\learning\Network\04. 网络层\03. IP协议簇\images\片偏移示例.PNG)
+  ![](https://github.com/gothicrush/learning/blob/master/Network/04.%20%E7%BD%91%E7%BB%9C%E5%B1%82/03.%20IP%E5%8D%8F%E8%AE%AE%E7%B0%87/images/%E7%89%87%E5%81%8F%E7%A7%BB%E7%A4%BA%E4%BE%8B.PNG)
 
 
 
@@ -60,11 +60,11 @@
 
 * ICMP报文被封装再IP数据报内，随IP数据报进行传输
 
-![](C:\Users\narli\Desktop\learning\Network\04. 网络层\03. IP协议簇\images\ICMP数据报.PNG)
+![](https://github.com/gothicrush/learning/blob/master/Network/04.%20%E7%BD%91%E7%BB%9C%E5%B1%82/03.%20IP%E5%8D%8F%E8%AE%AE%E7%B0%87/images/ICMP%E6%95%B0%E6%8D%AE%E6%8A%A5.PNG)
 
 ### ICMP报文类型和代码
 
-![](C:\Users\narli\Desktop\learning\Network\04. 网络层\03. IP协议簇\images\ICMP报文类型.PNG)
+![](https://github.com/gothicrush/learning/blob/master/Network/04.%20%E7%BD%91%E7%BB%9C%E5%B1%82/03.%20IP%E5%8D%8F%E8%AE%AE%E7%B0%87/images/ICMP%E6%8A%A5%E6%96%87%E7%B1%BB%E5%9E%8B.PNG)
 
 
 

@@ -247,9 +247,7 @@
 
 * 图中**16位UDP长度**和**UDP长度**相同
 
-![](C:\Users\narli\Desktop\learning\Network\05.传输层\images\udp.jpg)
-
-### 
+![](https://github.com/gothicrush/learning/blob/master/Network/05.%E4%BC%A0%E8%BE%93%E5%B1%82/images/udp.jpg)
 
 ### UDP校验和计算方法
 
