@@ -10,8 +10,11 @@
 | Redis主从复制                 | [查看](https://github.com/gothicrush/learning/tree/master/Redis/06.Redis%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6) |
 | Redis-Sentinel                | [查看](https://github.com/gothicrush/learning/tree/master/Redis/07.Redis-Sentinel) |
 | Redis-Cluster                 | [查看](https://github.com/gothicrush/learning/tree/master/Redis/08.Redis-Cluster) |
+| 布隆过滤器                    | [查看](https://github.com/gothicrush/learning/tree/master/Redis/09.%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8) |
 | 缓存问题与优化                | [查看](https://github.com/gothicrush/learning/tree/master/Redis/10.%E7%BC%93%E5%AD%98%E9%97%AE%E9%A2%98%E4%B8%8E%E4%BC%98%E5%8C%96) |
-| Redigo                        | [查看](https://github.com/gothicrush/learning/tree/master/Redis/14.Redigo) |
+| Redis内存管理                 | TODO                                                         |
+| Redis开发规范与安全           | [查看](https://github.com/gothicrush/learning/tree/master/Redis/12.Redis%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83%E4%B8%8E%E5%AE%89%E5%85%A8) |
+| Redigo                        | [查看](https://github.com/gothicrush/learning/tree/master/Redis/13.Redigo) |
 
 ### 练习
 
