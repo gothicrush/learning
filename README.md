@@ -14,5 +14,5 @@
 | Docker              | Docker容器         | [查看](https://github.com/gothicrush/learning/tree/master/Docker) |
 | Network             | 计算机网络         | [查看](https://github.com/gothicrush/learning/tree/master/Network) |
 | Go-Standard-Library | Go语言标准库       | [查看](https://github.com/gothicrush/learning/tree/master/Go-Standard-Library) |
-| RabbitMQ            | RabbitMQ消息中间件 | [RabbitMQ](https://github.com/gothicrush/learning/tree/master/RabbitMQ) |
+| RabbitMQ            | RabbitMQ消息中间件 | [查看](https://github.com/gothicrush/learning/tree/master/RabbitMQ) |
 
